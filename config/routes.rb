@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
   resources :users, only: [:new, :show, :create, :edit]
+
+  resources :home
+
+  get 'home/index'
+
   get 'events/New'
 
   get 'events/Create'
