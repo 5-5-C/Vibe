@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  resources :users, only: [:new, :show, :create, :edit]
   get 'events/New'
 
   get 'events/Create'
@@ -11,14 +11,6 @@ Rails.application.routes.draw do
   get 'events/Destroy'
 
 
-
-  get 'users/new'
-
-  get 'users/show'
-
-  get 'users/create'
-
-  get 'users/edit'
 
   get 'organizations/index'
 
