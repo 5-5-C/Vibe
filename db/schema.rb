@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20170227181246) do
     t.string   "name"
     t.text     "description"
     t.text     "location"
-
-ActiveRecord::Schema.define(version: 20170227150649) do
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170227150649) do
     t.integer  "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
   create_table "user_time_slots", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "timeslot_id"
