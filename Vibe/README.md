@@ -5,11 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Description
-An app that helps users find volunteer opportunities around them.
-
-* Ruby
-2.3.1
+* Ruby version
 
 * System dependencies
 
@@ -24,16 +20,12 @@ An app that helps users find volunteer opportunities around them.
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-open the files in your text reader
-run rails s on your command line
-go to local host 3000 in your browser
 
 * ...
 # Vibe
 
 
-Amena Khatun
-
 joel is cool
 
 Graham
+
