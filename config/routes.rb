@@ -7,25 +7,12 @@ Rails.application.routes.draw do
 
   resources :home
 
-  get 'home/index'
+  resources :home, only: [:index]
 
-  get 'events/New'
+  resources :events, only: [:new, :create, :show, :edit, :destroy]
 
-  get 'events/Create'
+  resources :organizations, only: [:index, :new, :create]
 
-  get 'events/Show'
-
-  get 'events/Edit'
-
-  get 'events/Destroy'
-
-
-
-  get 'organizations/index'
-
-  get 'organizations/new'
-
-  get 'organizations/create'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
