@@ -16,11 +16,22 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update_attributes(user_params)
+    if @user.save
+      redirect_to user_path(current_user)
+    else
+      render "edit"
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :region)
   end
 end

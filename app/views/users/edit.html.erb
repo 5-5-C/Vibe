@@ -1,73 +1,62 @@
-<<<<<<< HEAD
 <h1> Thank you for joining V.I.B.E  </h1>
 
 <h2> Next Steps </h2>
 
-
-<h3>Create a Profile</h3>
-
-<html>
-<body>
-
-=======
->>>>>>> 37fb1504801ee56812ad59c4035ced5da1791ec1
-<form action="/action_page.php">
-  <fieldset>
-    <legend>Your Introduction!</legend>
-    First name:<br>  <input type="text" name="firstname" value=" ">
-    <br>
-    Last name:<br> <input type="text" name="lastname" value=" ">
-    <br>
-    Select your Region:
-    <select>
-    <option value="Region">Region</option>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class ="error_messages">
+      <h2>Form is invalid</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= select("user", "region", User::REGIONS, {include_blank: true}) %>
+  </div>
+  <div class="dropdown"></div>
+    <div class="field">Select your Region</div>
+    <select class="dropdown-content"></div>
+    <option value="Toronto">Regions</option>
     <option value="Toronto">City of Toronto</option>
-    <option value="Durham">Durham</option>
     <option value="York">York</option>
+    <option value="Durham">Durham</option>
     <option value="peel">Peel</option>
     <option value="halton">Halton</option>
   </select>
-    <br>
-
-     ZipCode:<br> <input type="text" name="zipcode" value=" ">
-    <br>
-    What types if Volunteer Positions are you interested in
-
-    ZipCode:<br> <input type="text" name="zipcode" value=" ">
-    <br>
-    What types if Volunteer Positions are your interested in
-
-    <select>
-    <option value="long-term"></option>
-    <option value="opp">Long-Term (More than 3 months)</option>
-    <option value="opp">Short Term (3 months or less)</option>
-    <option value="opp">One day or less</option>
-    <option value="opp">Event Committee</option>
-    <option value="opp">Board/Governance</option>
-    <option value="opp">High School Community Service</option>
-  </select>
-
-  <br>
-  Summary (max 250 characters)
-  <br>
-  <textarea rows="10" cols="50">
-  </textarea>
-
-
-    <br><br>
-
-    <input type="submit" value="Submit">
-<<<<<<< HEAD
+    </select>
+    <div class="dropdown"></div>
+      <div class="field">Select Volunteer Opportunity Type</div>
+      <select class="dropdown-content"></div>
+        <option value="1">Types</option>
+        <option value="2">High School Community Service</option>
+        <option value="3">Event Committee</option>
+        <option value="4">Board/Governance</option>
+        <option value="5">Long-Term (More than 3 months)</option>
+        <option value="6">Short Term (3 months or less)</option>
+        </select>
+    <div class ="textbox">
+      <div class="field">Summary (max 250 characters)</div>
+        <div class ="text-field">
+        <textarea rows="10" cols="50">
+        </textarea>
+      </div>
 
 
 
+    <div class = "actions">
+    <%= f.submit %>
+    <%= link_to 'Update User', user_path(current_user) %>
+  </div>
 
-  </fieldset>
-</form>
-
-</body>
-</html>
-=======
-  </fieldset>
-</form>
->>>>>>> 37fb1504801ee56812ad59c4035ced5da1791ec1
+    <% end %>
