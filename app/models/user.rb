@@ -4,5 +4,5 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  REGIONS = ["City of Toronto", "Peel", "Durham", "Halton"]
+  REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"] 
 end
