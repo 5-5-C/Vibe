@@ -4,22 +4,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:id])
+
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-
-      redirect_to root_url
+      redirect_to new_session_path
     else
       render "new"
     end
   end
 
   def edit
-
     @user = current_user
   end
 
@@ -31,15 +28,18 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
+  end
 
-    @user = User.find_by(params[:id])
-
+  def upload
+    uploaded_io = params[:user][:profile_picture]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
   end
 
   private
 
-
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :region)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :region, :profile_picture, :volunteer_position)
   end
 end
