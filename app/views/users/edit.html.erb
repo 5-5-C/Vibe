@@ -3,6 +3,10 @@
 
 <h2> Next Steps </h2>
 
+  <%= form_for @user do |f| %>
+   <%= f.file_field :profile_picture %>
+  <% end %>
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class ="error_messages">
@@ -22,50 +26,31 @@
     <%= f.label :last_name %><br/>
     <%= f.text_field :last_name %>
   </div>
+
   <div class="field">
+    <div class="dropdown"></div>
+    <div class="field">Select your Region</div>
     <%= select("user", "region", User::REGIONS, {include_blank: true}) %>
   </div>
-  <div class="dropdown"></div>
-    <div class="field">Select your Region</div>
-    <select class="dropdown-content"></div>
-    <option value="Toronto">Regions</option>
 
-<form action="/action_page.php">
-  <fieldset>
-    <legend>Edit Information</legend>
-    First name:<br>  <input type="text" name="firstname" value=" ">
-    <br>
-    Last name:<br> <input type="text" name="lastname" value=" ">
-    <br>
-    Select your Region:
-    <select>
-    <option value="Region">Region</option>
+  <div>
+     <%= f.label :volunteer_position %><br/>
+     <%= f.select :volunteer_position, options_for_select([["High School Community Service","High School Community Service"], ["Event Committee", "Event Committee"], ["board", "board"], ["Long-Term (More than 3 months)", "Long-Term (More than 3 months)"], ["Short Term (3 months or less)", "Short Term (3 months or less)"]]) %>
+   </div>
 
-    <option value="Toronto">City of Toronto</option>
-    <option value="York">York</option>
-    <option value="Durham">Durham</option>
-    <option value="peel">Peel</option>
-    <option value="halton">Halton</option>
-  </select>
-    </select>
-    <div class="dropdown"></div>
-      <div class="field">Select Volunteer Opportunity Type</div>
-      <select class="dropdown-content"></div>
-        <option value="1">Types</option>
-        <option value="2">High School Community Service</option>
-        <option value="3">Event Committee</option>
-        <option value="4">Board/Governance</option>
-        <option value="5">Long-Term (More than 3 months)</option>
-        <option value="6">Short Term (3 months or less)</option>
-        </select>
+
+
+         <option value="6"></option>
+
+
+
+
     <div class ="textbox">
       <div class="field">Summary (max 250 characters)</div>
         <div class ="text-field">
         <textarea rows="10" cols="50">
         </textarea>
       </div>
-
-
 
     <div class = "actions">
     <%= f.submit %>

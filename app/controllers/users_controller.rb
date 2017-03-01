@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   def create
@@ -29,9 +30,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def upload
+    uploaded_io = params[:user][:profile_picture]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :regions)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :region, :profile_picture, :volunteer_position)
   end
 end
