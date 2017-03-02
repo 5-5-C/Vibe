@@ -8,6 +8,10 @@ class User < ApplicationRecord
     ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
   end
 
+  REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
+
+  has_attached_file :picture, styles: {thumbnail: ["10x10#", :png, :jpeg, :jpg]}
+ # validates_attachment :picture,  content_type: ["image/jpeg", "image/gif", "image/png"]
 end
 
 

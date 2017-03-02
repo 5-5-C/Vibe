@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20170302210008) do
 ActiveRecord::Schema.define(version: 20170302033708) do
 
   create_table "events", force: :cascade do |t|
@@ -46,8 +47,8 @@ ActiveRecord::Schema.define(version: 20170302033708) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
@@ -55,6 +56,10 @@ ActiveRecord::Schema.define(version: 20170302033708) do
     t.integer  "volunteer_position"
     t.date     "date_of_birth"
     t.string   "summary"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
 end
