@@ -21,7 +21,11 @@
       <div class="panel panel-info">
         <div class="panel-heading">
           <h3 class="panel-title"><%= current_user.first_name %>'s Profile
-          | <%= link_to 'Edit Profile', edit_user_path %>
+            <span class="pull-right">
+              <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" <i class="glyphicon glyphicon-edit"></i></a>
+
+           <%= link_to 'Edit Profile', edit_user_path %>
+        </span>
           </h3>
 
 
