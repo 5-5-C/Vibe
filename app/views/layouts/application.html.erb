@@ -18,7 +18,9 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
      </button>
       <a class="navbar-brand" href="/home">V.I.B.E</a>
     </div>
@@ -27,10 +29,11 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
+      <li><img alt="User Pic" src="http://fillmurray.com/30/30" class="img-circle img-responsive"></li>
       <li><%= link_to "My Profile", user_path(current_user) %></li>
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
       <% else %>
-      <li><%= link_to "Log in", new_session_path %>></li>
+      <li><%= link_to "Log in", new_session_path %></li>
       <li><%= link_to "Sign up", new_user_path %></li>
       <% end %>
     </ul>
@@ -38,8 +41,8 @@
   </div>
 </nav>
 
-
-    <%= yield %>
+<%= yield %>
 
 </body>
+
 </html>
