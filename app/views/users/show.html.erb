@@ -7,14 +7,19 @@
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
+<!-- <h1><%= current_user.first_name %>'s Profile |
 
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title"><%= current_user.first_name %>'s Profile
-              | <%= link_to 'Edit Profile', edit_user_path %>
-              </h3>
+<%= link_to 'Edit Profile', edit_user_path %>
+<%= current_user.region %>
 
+<%= current_user.volunteer_position %>
+<%= current_user.summary %>
+<%=current_user.date_of_birth %>
 
+<%= current_user.volunteer_position %>
+<%= current_user.summary %>
+
+<%= current_user.volunteer_position %> -->
 
             </div>
             <div class="panel-body">
@@ -29,46 +34,84 @@
 
                     <tbody>
 
-                      <tr>
-                        <td>About Me:</td>
-                        <td><%= current_user.summary %></td>
-                      </tr>
+<div class="container">
+  <div class="row">
+  <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
 
-                      <tr>
-                        <td>Region:</td>
-                        <td><%= current_user.region %></td>
-                      </tr>
+   <br>
+  </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
-                      <tr>
-                        <td>Age:</td>
-                        <td><%=  %></td>
-                      </tr>
 
-                      <tr>
-                        <td>Email:</td>
-                        <td><%= current_user.email %></td>
-                      </tr>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= current_user.first_name %>'s Profile
+            <span class="pull-right">
+              <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" <i class="glyphicon glyphicon-edit"></i></a>
 
-                      <tr>
-                        <td>Join Date:</td>
-                        <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
-                      </tr>
+           <%= link_to 'Edit Profile', edit_user_path %>
+        </span>
+          </h3>
 
-                    </tbody>
-                  </table>
 
-                </div>
-              </div>
+
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://fillmurray.com/300/300" class="img-circle img-responsive"> </div>
+
+
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+
+                  <tr>
+                    <td>About Me:</td>
+                    <td><%= current_user.summary %></td>
+                  </tr>
+
+                  <tr>
+                    <td>Region:</td>
+                    <td><%= current_user.region %></td>
+                  </tr>
+
+                  <tr>
+                    <td>Age:</td>
+                    <td><%= current_user.age %></td>
+                  </tr>
+
+                  <tr>
+                    <td>Email:</td>
+                    <td><%= current_user.email %></td>
+                  </tr>
+
+                  <tr>
+                    <td>Volunteer Position:</td>
+                    <td> <% volunteer_position = [1,"High School Community Service"], [2,"Event Committee"], [3,"board"], [4,"Long-Term (More than 3 months)"], [5,"Short Term (3 months or less)"]%>
+                     <% hash_volunteer_position = Hash[volunteer_position] %>
+                     <%=  hash_volunteer_position[current_user.volunteer_position] %></td>
+                  </tr>
+
+                  <tr>
+                    <td>Join Date:</td>
+                    <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
             </div>
-                 <div class="panel-footer">
-                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                        </span>
-                    </div>
-
           </div>
         </div>
+             <div class="panel-footer">
+                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+                        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                    </span>
+                </div>
+
       </div>
     </div>
+  </div>
+</div>
