@@ -35,21 +35,11 @@
 
   <div>
      <%= f.label :volunteer_position %><br/>
-     <%= f.select :volunteer_position, options_for_select([["High School Community Service","High School Community Service"], ["Event Committee", "Event Committee"], ["board", "board"], ["Long-Term (More than 3 months)", "Long-Term (More than 3 months)"], ["Short Term (3 months or less)", "Short Term (3 months or less)"]]) %>
+     <%=f.select :volunteer_position, options_for_select([["High School Community Service","High School Community Service"], ["Event Committee", "Event Committee"], ["board", "board"], ["Long-Term (More than 3 months)", "Long-Term (More than 3 months)"], ["Short Term (3 months or less)", "Short Term (3 months or less)"]]) %>
    </div>
 
-
-
-         <option value="6"></option>
-
-
-
-
-    <div class ="textbox">
-      <div class="field">Summary (max 250 characters)</div>
-        <div class ="text-field">
-        <textarea rows="10" cols="50">
-        </textarea>
+      <div class="field">Summary</div>
+      <%= f.text_area :summary, :cols => "50", :rows => "10" %>
       </div>
 
     <div class = "actions">
