@@ -7,8 +7,6 @@
 <%= current_user.summary %>
 <%=current_user.date_of_birth %>
 
-<%= current_user.profile_picture %>
-
 <%= current_user.volunteer_position %>
 <%= current_user.summary %>
 
@@ -53,12 +51,19 @@
 
                   <tr>
                     <td>Age:</td>
-                    <td><%=  %></td>
+                    <td><%= current_user.age %></td>
                   </tr>
 
                   <tr>
                     <td>Email:</td>
                     <td><%= current_user.email %></td>
+                  </tr>
+
+                  <tr>
+                    <td>Volunteer Position:</td>
+                    <td> <% volunteer_position = [1,"High School Community Service"], [2,"Event Committee"], [3,"board"], [4,"Long-Term (More than 3 months)"], [5,"Short Term (3 months or less)"]%>
+                     <% hash_volunteer_position = Hash[volunteer_position] %>
+                     <%=  hash_volunteer_position[current_user.volunteer_position] %></td>
                   </tr>
 
                   <tr>
