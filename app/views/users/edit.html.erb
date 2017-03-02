@@ -28,6 +28,12 @@
   </div>
 
   <div class="field">
+    <%= f.label :date_of_birth%>
+    <%= f.date_select :date_of_birth, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+  </div>
+
+
+  <div class="field">
     <div class="dropdown"></div>
     <div class="field">Select your Region</div>
     <%= select("user", "region", User::REGIONS, {include_blank: true}) %>
