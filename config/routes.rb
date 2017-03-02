@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
 
-  resources :events, only: [:new, :create, :show, :edit, :destroy]
+  get"/events/new" => "events#new"
+  resources :events
 
   resources :organizations, only: [:index, :new, :create]
 
