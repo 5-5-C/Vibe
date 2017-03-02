@@ -3,11 +3,11 @@
 
 <h2> Next Steps </h2>
 
-  <%= form_for @user do |f| %>
-   <%= f.file_field :profile_picture %>
-  <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html: { multipart: true } do |f| %>
+<%= f.file_field :picture %>
+
+
   <% if @user.errors.any? %>
     <div class ="error_messages">
       <h2>Form is invalid</h2>

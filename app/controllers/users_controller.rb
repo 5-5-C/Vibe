@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # @user.picture = params[:user][:picture]
     if @user.save
       redirect_to new_session_path
     else
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
+
     if @user.save
       redirect_to user_path(current_user)
     else
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def upload
-    uploaded_io = params[:user][:profile_picture]
+    uploaded_io = params[:user][:picture]
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
       file.write(uploaded_io.read)
     end
@@ -40,6 +42,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :region, :profile_picture, :volunteer_position)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :region, :picture, :volunteer_position)
   end
 end
