@@ -30,7 +30,7 @@
     <%= f.label :date_of_birth%>
     <%= f.date_select :date_of_birth,
         { order: [:month, :day, :year],
-          prompt: { day: 'Select day', month: 'Select month', year: 'Select year' } %>
+          prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ]} %>
   </div>
 
 
