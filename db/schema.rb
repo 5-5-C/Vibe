@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170302210008) do
     t.string   "password_digest"
     t.string   "region"
     t.integer  "volunteer_position"
+    t.string   "profile_picture"
     t.date     "date_of_birth"
     t.string   "summary"
     t.string   "picture_file_name"
