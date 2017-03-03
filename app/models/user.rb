@@ -4,9 +4,9 @@ class User < ApplicationRecord
   has_secure_password
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
 
-  # def age
-  #   ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
-  # end
+  def age
+    ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
+  end
 
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
 
