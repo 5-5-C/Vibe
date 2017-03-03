@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get"/events/new" => "events#new"
   resources :events
 
-  resources :organizations, only: [:index, :new, :create]
+  resources :organizations
 
 
 
