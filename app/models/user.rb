@@ -7,10 +7,9 @@ class User < ApplicationRecord
 
   def age
     ((Time.now - self.date_of_birth.to_time)/ 1.year).round
+  end
 
-  # def age
-  #   ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
-  # end
+
 
 
   has_attached_file :picture, styles: {thumbnail: ["10x10#"]}

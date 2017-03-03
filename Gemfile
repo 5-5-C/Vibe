@@ -35,11 +35,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Pictures gem
 gem "paperclip", "~> 5.0.0"
 gem 'fog'
-<<<<<<< HEAD
+
 #
 # gem "paperclip", "~> 5.0.0"
-=======
->>>>>>> fb897ba713e6e723153f3abfdfee19e6b5770e12
+
 
 
 # Use Capistrano for deployment
