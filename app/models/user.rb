@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
 
-  has_attached_file :picture, styles: {thumbnail: ["10x10#", :png, :jpeg, :jpg]}
+  has_attached_file :picture, styles: {thumbnail: ["10x10#"]}
  # validates_attachment :picture,  content_type: ["image/jpeg", "image/gif", "image/png"]
 end
 
