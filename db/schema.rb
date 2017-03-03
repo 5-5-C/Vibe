@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170302210008) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "time_slots", force: :cascade do |t|
+  create_table "timeslots", force: :cascade do |t|
     t.date     "date"
     t.time     "time"
     t.integer  "capacity"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170302210008) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_time_slots", force: :cascade do |t|
+  create_table "user_timeslots", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "timeslot_id"
     t.datetime "created_at",  null: false
