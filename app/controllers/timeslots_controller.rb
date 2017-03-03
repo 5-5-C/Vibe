@@ -2,7 +2,7 @@ class TimeslotsController < ApplicationController
   def index
     @timeslots = Timeslot.all
   end
-
+  # 
   # def show
   #   @timeslots = Timeslot.new
   # end
