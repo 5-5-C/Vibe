@@ -10,6 +10,7 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -31,7 +32,7 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-      <li><img alt="User Pic" src="http://fillmurray.com/30/30" class="img-circle img-responsive"></li>
+      <!-- <li><img alt="User Pic" src="http://fillmurray.com/30/30" class="img-circle img-responsive"></li> -->
       <li><%= link_to "My Profile", user_path(current_user) %></li>
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
       <% else %>

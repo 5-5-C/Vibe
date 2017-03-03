@@ -10,8 +10,15 @@ class User < ApplicationRecord
 
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
 
-  has_attached_file :picture, styles: {thumbnail: ["10x10#"]}
+  # has_attached_file :picture, styles: {thumbnail: ["10x10#"]}
  # validates_attachment :picture,  content_type: ["image/jpeg", "image/gif", "image/png"]
+  has_attached_file :picture
+  # Validate content type
+  validates_attachment_content_type :picture, content_type: /\Aimage/
+  # Validate filename
+  validates_attachment_file_name :picture, matches: [/png\z/, /jpe?g\z/]
+  # Explicitly do not validate
+  do_not_validate_attachment_file_type :picture
 end
 
 

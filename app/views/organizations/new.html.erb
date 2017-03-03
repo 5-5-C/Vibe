@@ -1,2 +1,19 @@
 <h1>Organizations#new</h1>
-<p>Find me in app/views/organizations/new.html.erb</p>
+
+<%= form_for @organization do |f| %>
+
+<div>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+</div>
+<div>
+  <%= f.label :description %>:
+  <%= f.text_field :description %><br />
+</div>
+<div>
+  <%= f.label :location %>:
+  <%= f.text_field :location %><br />
+</div>
+<br>
+  <%= f.submit %>
+<% end %>
