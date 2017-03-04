@@ -1,0 +1,13 @@
+  <% @organizations.each do |organization| %>
+
+<div class="organization_name">
+
+    <%= link_to "Show", 'organizations/new' %>
+  
+    <p><%= organization.name %></p>
+    <p><%= organization.description %></p>
+    <p><%= organization.location %></p>
+  <br/>
+    <% end %>
+
+</div>
