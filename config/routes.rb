@@ -1,32 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'timeslots/index'
-
-  get 'timeslots/show'
-
-  get 'timeslots/new'
-
-  get 'timeslots/create'
-
-  get 'timeslots/edit'
-
-  get 'timeslots/update'
-
-  get 'timeslots/destroy'
-
-  get 'index/show'
-
-  get 'index/new'
-
-  get 'index/create'
-
-  get 'index/edit'
-
-  get 'index/update'
-
-  get 'index/destroy'
-
   root 'home#index'
+
+  resources :timeslots
 
 
   resources :sessions, only: [:new, :create, :destroy]
@@ -37,7 +13,6 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
 
-  get"/events/new" => "events#new"
   resources :events
 
   resources :organizations
