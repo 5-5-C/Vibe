@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates_attachment_file_name :picture, matches: [/png\z/, /jpe?g\z/]
   # Explicitly do not validate
   do_not_validate_attachment_file_type :picture
-end
+
 
 
 
