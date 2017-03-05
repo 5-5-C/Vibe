@@ -1,14 +1,33 @@
 class EventsController < ApplicationController
 
+  before_action
+  # :load_organization
+    @organization = Organization.find(params[:organization_id])
+
+
   def index
-    @events = Event.all
+    @events = @organization.events
   end
+
+  def show
+    @event = Event.find(params[:id])
+  end
+
 
   def new
     @event = Event.new
   end
 
   def create
+    @event = Event.new(event_params)
+    @event.organization = @organization
+
+    if @event.save
+      redirect_to organizations_path
+    else
+      render 'new'
+      flash[:notice] = "Event not saved"
+    end
     # @event = Event.new(event_params)
     # @event.user = Event.find(session[:user_id])
     # @event = Event.find(parans[:event][organizatons_id])
@@ -22,22 +41,10 @@ class EventsController < ApplicationController
     #   flash[:error] = 'Sorry, this event is full! Try another one!'
     #   redirect_to event_parth(params[:event][:organization_id])
     # end
-
-    @event = Event.new(event_params)
-    if @event.save
-      redirect_to root_url
-    else
-      render "new"
-    end
-  end
-
-  def show
-    @event = Event.new
   end
 
   def edit
     @event = Event.find(params[:id])
-
   end
 
   def destroy
@@ -45,17 +52,21 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to organizations_url
   end
-''
-
-
 
   private
 
-  
+
 
   def event_params
-    params.require(:event).permit(:date, :location, :name, :description)
+
+    params.require(:event).permit(:user_id, :organization_id, :event_size, :date, :name, :description, :location)
+
   end
+
+  # def load_organization
+  #   @organization = Organization.find(params[:organization_id])
+  # end
+
 end
 
 

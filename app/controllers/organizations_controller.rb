@@ -1,10 +1,13 @@
 class OrganizationsController < ApplicationController
   def index
     @organizations = Organization.all
+    # @organization = Organization.find(params[:id])
+
   end
 
   def show
     @organization = Organization.find(params[:id])
+    @events = @organization.events
   end
 
   def new
@@ -14,7 +17,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
-      redirect_to root_url
+      redirect_to organizations_path
 
     else
       render "new"
