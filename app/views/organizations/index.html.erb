@@ -2,11 +2,11 @@
 
 <div class="organization_name">
 
-    <%= link_to "Show", 'organizations/new' %>
-  
-    <p><%= organization.name %></p>
+    <%= link_to organization.name, organization_path(organization) %>
+
+    <h5>Type</h5>
     <p><%= organization.description %></p>
-    <p><%= organization.location %></p>
+
   <br/>
     <% end %>
 
