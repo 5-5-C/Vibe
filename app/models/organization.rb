@@ -4,3 +4,7 @@ class Organization < ApplicationRecord
 
   # belongs_to :users
 end
+
+  def create_event
+    render form_for @event
+  end
