@@ -1,0 +1,16 @@
+<h1>Organization</h1>
+
+<%= link_to "Create an Event", new_organization_event_path(@organization) %>
+
+<div class="organization_container">
+<h2>Name:</h2>
+  <%= @organization.name %>
+<h2>Description:</h2>
+  <%= @organization.description %>
+<h2>Location:</h2>
+  <%= @organization.location %>
+</div>
+
+<h2>Events:</h2>
+<p>(e.g help at the church for 2 hours on friday) </p>
+<h3>Newsfeed:</h3>
