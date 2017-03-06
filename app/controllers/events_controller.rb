@@ -24,7 +24,7 @@ class EventsController < ApplicationController
       if @event.save
         redirect_to organization_path(@organization)
       else
-        redirect_to organization_path
+        render 'new'
       end
     end
 

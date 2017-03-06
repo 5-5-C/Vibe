@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170306204839) do
 
   # These are extensions that must be enabled in order to support this database
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170306204839) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.boolean  "organization"
     t.integer  "hours"
   end
 
