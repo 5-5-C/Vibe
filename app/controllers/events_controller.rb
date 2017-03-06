@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   # :load_organization
     @organization = Organization.find(params[:organization_id])
 
-
   def index
     @events = @organization.events
   end
@@ -63,9 +62,9 @@ class EventsController < ApplicationController
 
   end
 
-  # def load_organization
-  #   @organization = Organization.find(params[:organization_id])
-  # end
+  def load_organization
+    @organization = Organization.find(params[:organization_id])
+  end
 
 end
 

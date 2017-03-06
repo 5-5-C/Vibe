@@ -1,4 +1,6 @@
 class OrganizationsController < ApplicationController
+
+
   def index
     @organizations = Organization.all
     # @organization = Organization.find(params[:id])

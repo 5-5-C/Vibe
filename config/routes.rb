@@ -1,21 +1,12 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-
   resources :timeslots
-
-
   resources :sessions, only: [:new, :create, :destroy]
-
   resources :users
-
   resources :home
-
   resources :home, only: [:index]
-
-
   resources :organizations do
-
   resources :events
   end
 
