@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 20170305222053) do
     t.string   "description"
     t.date     "date"
     t.string   "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "organization_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170305222053) do
     t.string   "password_digest"
     t.string   "region"
     t.integer  "volunteer_position"
+    t.string   "profile_picture"
     t.date     "date_of_birth"
     t.string   "summary"
     t.string   "picture_file_name"

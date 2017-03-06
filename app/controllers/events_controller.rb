@@ -1,15 +1,15 @@
 class EventsController < ApplicationController
 
-  before_action
-  # :load_organization
+  before_action do
     @organization = Organization.find(params[:organization_id])
+  end
+
 
   def index
     @events = @organization.events
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
 
@@ -21,12 +21,14 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.organization = @organization
 
-    if @event.save
-      redirect_to organizations_path
-    else
-      render 'new'
-      flash[:notice] = "Event not saved"
+
+      if @event.save
+        redirect_to organization_path(@organization)
+      else
+        redirect_to organization_path
+      end
     end
+
     # @event = Event.new(event_params)
     # @event.user = Event.find(session[:user_id])
     # @event = Event.find(parans[:event][organizatons_id])
@@ -41,6 +43,7 @@ class EventsController < ApplicationController
     #   redirect_to event_parth(params[:event][:organization_id])
     # end
   end
+
 
   def edit
     @event = Event.find(params[:id])
