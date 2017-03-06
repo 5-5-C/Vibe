@@ -1,16 +1,14 @@
 class EventsController < ApplicationController
 
-  before_action
-  # :load_organization
+  before_action do
     @organization = Organization.find(params[:organization_id])
-
+  end
 
   def index
     @events = @organization.events
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def new
@@ -22,26 +20,15 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.organization = @organization
 
-    if @event.save
-      redirect_to organizations_path
-    else
-      render 'new'
-      flash[:notice] = "Event not saved"
+
+      if @event.save
+        redirect_to organization_path(@organization)
+      else
+        redirect_to organization_path
+      end
     end
 
-    # @event.user = Event.find(session[:user_id])
-    # @event = Event.find(parans[:event][organizatons_id])
-    # if event.party_size < organization.remain_spot_search(params[:event][:date], params[:event][:organization])
-    #   if event.save
-    #     redirect_to user_parth(event.user)
-    #   else
-    #     redirect_to event_path(params[:event][:organization_id])
-    #   end
-    # else
-    #   flash[:error] = 'Sorry, this event is full! Try another one!'
-    #   redirect_to event_parth(params[:event][:organization_id])
-    # end
-  end
+
 
 
 

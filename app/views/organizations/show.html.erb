@@ -12,5 +12,12 @@
 </div>
 
 <h2>Events:</h2>
-<p>(e.g help at the church for 2 hours on friday) </p>
+
+  <% @events.each do |event| %>
+
+  <h3><%= event.name %></h3>
+  <p><%= event.description %></p>
+  <p><%= event.location %></p>
+  <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
+  <% end %>
 <h3>Newsfeed:</h3>
