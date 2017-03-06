@@ -31,10 +31,21 @@
     <div class="collapse navbar-collapse" id="myNavbar">
 
     <ul class="nav navbar-nav navbar-right">
-      <% if current_user %>
-      <li><img alt="User Pic" src="http://fillmurray.com/30/30" class="img-circle img-responsive"></li>
-      <li><%= link_to "New Organization", new_organization_path %></li>
+
       <li><%= link_to "Organizations", organizations_url %></li>
+
+      <% if current_user && current_user.organization? %>
+
+      <li><%= link_to "Create Event", new_organization_path %></li>
+
+      <li><%= link_to "Organization Profile", user_path(current_user) %></li>
+
+      <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
+
+
+
+      <% elsif current_user && current_user.organization == false %>
+
       <li><%= link_to "My Profile", user_path(current_user) %></li>
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
       <% else %>
@@ -53,11 +64,12 @@
         <hr>
             <div class="text-center center-block">
 
-                    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-    	            <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-    	            <a href="https://plus.google.com"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-    	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-    </div>
+              <i id="social-fb" class="fa fa-facebook-square fa-3x social"></i>
+              <i id="social-tw" class="fa fa-twitter-square fa-3x social"></i>
+              <i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i>
+              <i id="social-em" class="fa fa-envelope-square fa-3x social"></i>
+
+            </div>
         <hr>
     </div>
   </footer>
