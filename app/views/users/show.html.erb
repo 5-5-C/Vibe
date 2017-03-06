@@ -23,7 +23,6 @@
                   <table class="table table-user-information">
                     <tbody>
                     </br>
-                      <tr></tr>
                       <tr>
                         <td>About Me:</td>
                         <td><%= current_user.summary %></td>
@@ -56,7 +55,10 @@
                         <td>Join Date:</td>
                         <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
                       </tr>
-
+                      <tr>
+                        <td>Hours:</td>
+                        <td><%= current_user.hours %></td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
