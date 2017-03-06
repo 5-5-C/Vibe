@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-  has_many :timeslots
   has_many :events, through: :timeslots
-  validates_presence_of :hours
   has_secure_password
 
 # validates :first_name, :last_name, :email, :password_digest, presence: true
