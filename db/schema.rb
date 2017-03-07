@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306215221) do
+ActiveRecord::Schema.define(version: 20170307221155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,21 +34,7 @@ ActiveRecord::Schema.define(version: 20170306215221) do
     t.text     "location"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "timeslots", force: :cascade do |t|
-    t.date     "date"
-    t.time     "time"
-    t.integer  "capacity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_timeslots", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "timeslot_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170306215221) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.boolean  "organization"
+    t.boolean  "org_admin"
     t.integer  "hours"
   end
 
