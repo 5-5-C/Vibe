@@ -1,5 +1,15 @@
-
 <%= form_for [@organization, @event] do |f| %>
+
+<% if @event.errors.any? %>
+  <div class = "error_messages"
+  <h2> form is invalid </h2>
+  <ul>
+    <% @event.errors.full_messages.each do |message|%>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <div>
 <%= f.label :name %>:
@@ -13,13 +23,33 @@
 <%= f.label :location %>:
 <%= f.text_field :location %><br />
 </div>
-<div>
-   <div class="field">
+  <div class="field">
     <%= f.label :date%>
     <%= f.date_select :date,
         { order: [:month, :day, :year],
           prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ]} %>
   </div>
+
+  <div class="field">
+    <%= f.label :start_time%>
+    <%= f.time_field :start_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_time%>
+    <%= f.time_field :end_time %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :capacity%>
+    <%= f.select :capacity, options_for_select(1..500) %>
+
+  </div>
+
+
+
+
 
 <br>
 <%= f.submit %>

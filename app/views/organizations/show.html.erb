@@ -3,14 +3,22 @@
 <%= link_to "Create an Event", new_organization_event_path(@organization) %>
 
 <div class="organization_container">
+<h2>Name:</h2>
+ <%= @organization.name %>
+<h2>Description:</h2>
+ <%= @organization.description %>
+<h2>Location:</h2>
+ <%= @organization.location %>
+</div>
 
 <h2>Events:</h2>
 
-  <% @events.each do |event| %>
+ <% @events.each do |event| %>
 
-  <h3><%= event.name %></h3>
-  <p><%= event.description %></p>
-  <p><%= event.location %></p>
-  <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
-  <% end %>
-<h3>Newsfeed:</h3>
+ <h3><%= event.name %></h3>
+ <p><%= event.description %></p>
+ <p><%= event.location %></p>
+ <p><%= event.date %></p>
+ <p><%= event.capacity %></p>
+
+ <% end %>
