@@ -1,5 +1,11 @@
 class User < ApplicationRecord
+<<<<<<< HEAD
   has_many :events
+=======
+  has_many :timeslots
+  has_many :events, through: :timeslots
+  validates_presence_of :hours
+>>>>>>> 9357dfdd9a7b32c970a8d27fd8e31937ac255a28
   has_secure_password
 
 # validates :first_name, :last_name, :email, :password_digest, presence: true
