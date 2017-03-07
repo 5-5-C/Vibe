@@ -1,6 +1,6 @@
 <h1> Thank you for joining V.I.B.E  </h1>
 
-<h2> Next Steps </h2>
+<h3> Next Steps </h3>
 
 
 <%= form_for @user, html: { multipart: true } do |f| %>
@@ -9,7 +9,7 @@
 
   <% if @user.errors.any? %>
     <div class ="error_messages">
-      <h2>Form is invalid</h2>
+      <h3>Form is invalid</h3>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -29,8 +29,9 @@
   <div class="field">
     <%= f.label :date_of_birth%>
     <%= f.date_select :date_of_birth,
-        { order: [:month, :day, :year],
-          prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ]} %>
+          :start_year => 1920,
+          order: [:month, :day, :year],
+          prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %>
   </div>
 
 
@@ -42,16 +43,17 @@
 
   <div>
      <%= f.label :volunteer_position %><br/>
-     <%=f.select :volunteer_position, options_for_select([["High School Community Service", 1], ["Event Committee", 2], ["board", 3], ["Long-Term (More than 3 months)", 4], ["Short Term (3 months or less)", 4]]) %>
+     <%= f.select :volunteer_position, options_for_select([["High School Community Service", 1], ["Event Committee", 2], ["board", 3], ["Long-Term (More than 3 months)", 4], ["Short Term (3 months or less)", 4]]) %>
    </div>
 
-      <div class="field">Summary</div>
-      <%= f.text_area :summary, :cols => "50", :rows => "10" %>
-      </div>
-
-    <div class = "actions">
-    <%= f.submit %>
-
+  <div class="field">Summary</div>
+    <%= f.text_area :summary, :cols => "50", :rows => "10" %>
   </div>
 
-    <% end %>
+
+
+  <div class = "actions">
+    <%= f.submit %>
+  </div>
+
+  <% end %>

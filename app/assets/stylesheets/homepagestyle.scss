@@ -1,0 +1,208 @@
+body {
+  background: #f6efe5;
+}
+
+.navbar  {
+  margin-bottom: 0px;
+}
+
+.top-bar {
+  background-color: transparent;
+  background-size: cover;
+}
+nav.top-bar {
+  width:100%;
+  position:fixed;
+}
+
+.title-area {
+  background-color: transparent;
+}
+
+.top-bar ul, .top-bar {
+  background-color:transparent;
+  color: white;
+
+}
+
+a {
+  color: white;
+}
+
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.active {
+  position: fixed, right;
+  float: right;
+  margin:10px;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.name {
+  position: fixed;
+}
+
+h2 {position: absolute;width: 269px;height: 592px;length: 100px;background: #0d2c40;margin: 0px 0px 0px 215px;}
+
+.intro-writeup {
+  color: white;
+  text-align: center;
+  padding-top: 64px;
+}
+
+.learn-more-button {
+  text-align: center;
+}
+
+
+img {
+  width: 100%;
+  background-size: auto;
+  /* height: 502px; */
+}
+
+.logo-circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 225px;
+  height: 225px;
+  background: white;
+  /* margin: 400px 116px 0px 100px; */
+  margin: 49% 8%;
+}
+
+.logo-letter {
+  color: #f15b31;
+  font-size: 125px;
+  font-weight: bold;
+  margin: 49px 67px;
+}
+
+.i {
+  position: absolute;
+  background: #f15b31;
+  height: 256px;
+  margin: 336px 0px 0px 484px;
+  width: 825px;
+}
+
+.i-circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background: white;
+  margin: 4% 5%;
+}
+
+.i-letter {
+  color: #0d2c40;
+  font-size: 100px;
+  font-weight: bold;
+  margin: 47px 80px;
+}
+
+.b {
+  position: absolute;
+  width: 269px;
+  height: 850px;
+  background: #31c6dc;
+  margin: 336px 770px;
+}
+
+.b-circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background: #0d2c40;
+  margin: 31px 35px;
+}
+
+.b-letter {
+  color: white;
+font-size: 100px;
+font-weight: bold;
+margin: 45px 64px;
+}
+
+.e {
+  background: transparent;
+  margin-top: -10px;
+
+}
+
+.e-circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background: white;
+  margin: 368px 1081px;
+}
+
+.e-letter {
+  color: #0d2c40;
+  font-size: 100px;
+  font-weight: bold;
+  margin: 45px 11px 0px 63px;
+}
+
+
+.about-us {
+  position: absolute;
+  background: #0d2c40;
+  color: white;
+  width: 400px;
+  height: 450px;
+  margin-top: 125px;
+}
+
+.vertical-text {
+  transform: rotate(270deg);
+  float: left;
+  margin-top: 240px;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: -41px;
+}
+
+.about-us-writeup {
+  position: relative;
+  margin-top: 30px;
+  margin-top: 185px;
+  margin-right: 39px;
+  margin-left: 111px;
+}
+
+.vibe-writeup {
+  padding-top: 215px;
+  color: white;
+}
+
+.event-bar {
+  background-color: #f15b31;
+  width: 300px;
+  height: 34px;
+  margin: 200px 0px 0px 445px;
+  text-align: center;
+  padding-top: 7px;
+  font-weight: bold;
+  color: white;
+  }
+
+.volunteer-oppoertunities-bar {
+  background-color: #f15b31;
+  width: 244px;
+  height: 34px;
+  margin: -32px 0px 0px 1053px;
+  text-align: center;
+  padding-top: 7px;
+  font-weight: bold;
+  color: white;
+}
