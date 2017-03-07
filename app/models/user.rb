@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :events
   has_secure_password
 
@@ -10,6 +11,8 @@ class User < ApplicationRecord
   def age
     ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
   end
+    
+
   # has_attached_file :picture, styles: {thumbnail: ["10x10#"]}
  # validates_attachment :picture,  content_type: ["image/jpeg", "image/gif", "image/png"]
   has_attached_file :picture
