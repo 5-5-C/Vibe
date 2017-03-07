@@ -3,16 +3,15 @@
 <%= link_to "Create an Event", new_organization_event_path(@organization) %>
 
 <div class="organization_container">
-<h2>Name:</h2>
+<h3>Name:</h3>
  <%= @organization.name %>
-<h2>Description:</h2>
+<h3>Description:</h3>
  <%= @organization.description %>
-<h2>Location:</h2>
+<h3>Location:</h2>
  <%= @organization.location %>
 </div>
 
-<h2>Events:</h2>
-
+<h3>Events:</h3>
  <% @events.each do |event| %>
 
   <h3><%= event.name %></h3>
@@ -21,7 +20,6 @@
   <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
   <p><%= event.capacity %></p>
 
- <% end %>
   <table class="table table-bordered table-definition mb-5">
      <thead class="table-warning ">
          <tr>
@@ -64,7 +62,7 @@
                      <span class="custom-control-indicator"></span>
                  </label>
              </td>
-             <td>Joel C</td>
+             <td>Joel Caprani</td>
              <td>March 7, 2017</td>
              <td>whatever@whatever.com</td>
              <td>No</td>
