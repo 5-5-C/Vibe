@@ -132,7 +132,7 @@ img {
 .b {
   position: absolute;
   width: 269px;
-  height: 500px;
+  height: 850px;
   background: #31c6dc;
   margin: 336px 770px;
 }
@@ -173,4 +173,57 @@ margin: 45px 64px;
   font-size: 100px;
   font-weight: bold;
   margin: 45px 11px 0px 63px;
+}
+
+
+.about-us {
+  position: absolute;
+  background: #0d2c40;
+  color: white;
+  width: 400px;
+  height: 450px;
+  margin-top: 125px;
+}
+
+.vertical-text {
+  transform: rotate(270deg);
+  float: left;
+  margin-top: 240px;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: -41px;
+}
+
+.about-us-writeup {
+  margin-top: 30px;
+  margin-top: 185px;
+  margin-right: 39px;
+  margin-left: 111px;
+}
+
+.vibe-writeup {
+  padding-top: 215px;
+  color: white;
+}
+
+.event-bar {
+  background-color: #f15b31;
+  width: 300px;
+  height: 34px;
+  margin: 200px 0px 0px 445px;
+  text-align: center;
+  padding-top: 7px;
+  font-weight: bold;
+  color: white;
+  }
+
+.volunteer-oppoertunities-bar {
+  background-color: #f15b31;
+  width: 244px;
+  height: 34px;
+  margin: -32px 0px 0px 1053px;
+  text-align: center;
+  padding-top: 7px;
+  font-weight: bold;
+  color: white;
 }
