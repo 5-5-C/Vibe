@@ -1,0 +1,37 @@
+<%= form_for [@organization, @event] do |f| %>
+
+<% if @event.errors.any? %>
+  <div class ="error_messages">
+    <h2>Event Could Not Be Created</h2>
+  <ul>
+    <% @event.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div> </br>
+<% end %>
+
+<div>
+<%= f.label :name %>:
+<%= f.text_field :name %><br />
+</div>
+<div>
+<%= f.label :description %>:
+<%= f.text_field :description %><br />
+</div>
+<div>
+<%= f.label :location %>:
+<%= f.text_field :location %><br />
+</div>
+<div>
+   <div class="field">
+    <%= f.label :date%>
+    <%= f.date_select :date,
+          :start_year => 2017,
+          order: [:month, :day, :year],
+          prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %>
+  </div>
+
+<br>
+<%= f.submit %>
+<% end %>

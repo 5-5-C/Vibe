@@ -10,15 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228220658) do
+
+ActiveRecord::Schema.define(version: 20170306204839) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.date     "date"
     t.string   "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "organization_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -29,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170228220658) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "time_slots", force: :cascade do |t|
+  create_table "timeslots", force: :cascade do |t|
     t.date     "date"
     t.time     "time"
     t.integer  "capacity"
@@ -37,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170228220658) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_time_slots", force: :cascade do |t|
+  create_table "user_timeslots", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "timeslot_id"
     t.datetime "created_at",  null: false
@@ -46,16 +51,21 @@ ActiveRecord::Schema.define(version: 20170228220658) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
     t.string   "region"
     t.integer  "volunteer_position"
-    t.string   "profile_picture"
     t.date     "date_of_birth"
     t.string   "summary"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.boolean  "organization"
+    t.integer  "hours"
   end
 
 end

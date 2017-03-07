@@ -1,2 +1,34 @@
-<h1>Events#Edit</h1>
-<p>Find me in app/views/events/Edit.html.erb</p>
+<h1> Quick Search Through Our Volunteer Opportunities  </h1>
+
+<h2> Next Steps </h2>
+
+
+<%= form_for @user, html: { multipart: true } do |f| %>
+
+
+  <% if @user.errors.any? %>
+    <div class ="error_messages">
+      <h2>Form is invalid</h2>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <div class="dropdown"></div>
+    <div class="field">Categories</div>
+  </div>
+
+  <div class="field">
+    <div class="dropdown"></div>
+    <div class="field">Companies</div>
+  </div>
+
+  <div class="field">
+    <div class="dropdown"></div>
+    <div class="field">Events Available</div>
+  </div>

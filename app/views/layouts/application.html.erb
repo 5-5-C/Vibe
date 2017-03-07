@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -22,14 +23,38 @@
        <span class="icon-bar"></span>
        <span class="icon-bar"></span>
      </button>
+<<<<<<< HEAD
       <a class="navbar-brand" href="/home">Follow Us</a>
       <i class="fa fa-facebook-square" aria-hidden="true"></i>
+=======
+      <a class="navbar-brand" href="/home">V.I.B.E</a>
+
+>>>>>>> 5c75580f4c48e463f5e900cdfa405c4c06fa4594
     </div>
+
+
 
     <div class="collapse navbar-collapse" id="myNavbar">
 
     <ul class="nav navbar-nav navbar-right">
-      <% if current_user %>
+
+
+
+      <li><%= link_to "Organizations", organizations_url %></li>
+
+      <% if current_user && current_user.organization? %>
+
+      <li><%= link_to "Create Event", new_organization_path %></li>
+
+
+      <li><%= link_to "Organization Profile", user_path(current_user) %></li>
+
+      <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
+
+
+
+      <% elsif current_user && current_user.organization == false %>
+
       <li><%= link_to "My Profile", user_path(current_user) %></li>
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
       <% else %>
@@ -42,10 +67,28 @@
 </nav>
 
 
+<<<<<<< HEAD
 
 
 
     <%= yield %>
+=======
+<%= yield %>
+<footer>
+    <div class="container">
+        <hr>
+            <div class="text-center center-block">
 
+              <i id="social-fb" class="fa fa-facebook-square fa-3x social"></i>
+              <i id="social-tw" class="fa fa-twitter-square fa-3x social"></i>
+              <i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i>
+              <i id="social-em" class="fa fa-envelope-square fa-3x social"></i>
+>>>>>>> 5c75580f4c48e463f5e900cdfa405c4c06fa4594
+
+            </div>
+        <hr>
+    </div>
+  </footer>
 </body>
+
 </html>
