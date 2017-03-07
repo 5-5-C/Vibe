@@ -4,22 +4,24 @@
 
 <div class="organization_container">
 <h2>Name:</h2>
-  <%= @organization.name %>
+ <%= @organization.name %>
 <h2>Description:</h2>
-  <%= @organization.description %>
+ <%= @organization.description %>
 <h2>Location:</h2>
-  <%= @organization.location %>
+ <%= @organization.location %>
 </div>
 
 <h2>Events:</h2>
 
-  <% @events.each do |event| %>
+ <% @events.each do |event| %>
 
   <h3><%= event.name %></h3>
   <p><%= event.description %></p>
   <p><%= event.location %></p>
   <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
+  <p><%= event.capacity %></p>
 
+ <% end %>
   <table class="table table-bordered table-definition mb-5">
      <thead class="table-warning ">
          <tr>

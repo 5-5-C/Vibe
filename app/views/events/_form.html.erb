@@ -1,6 +1,7 @@
 <%= form_for [@organization, @event] do |f| %>
 
 <% if @event.errors.any? %>
+
   <div class ="error_messages">
     <h2>Event Could Not Be Created</h2>
   <ul>
@@ -23,8 +24,7 @@
 <%= f.label :location %>:
 <%= f.text_field :location %><br />
 </div>
-<div>
-   <div class="field">
+  <div class="field">
     <%= f.label :date%>
     <%= f.date_select :date,
           :start_year => 2017,
@@ -32,6 +32,28 @@
           prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %>
   </div>
 
+  <div class="field">
+    <%= f.label :start_time%>
+    <%= f.time_field :start_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_time%>
+    <%= f.time_field :end_time %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :capacity%>
+    <%= f.select :capacity, options_for_select(1..500) %>
+
+  </div>
+
+
+
+
+
 <br>
 <%= f.submit %>
+
 <% end %>
