@@ -3,15 +3,15 @@
 <%= link_to "Create an Event", new_organization_event_path(@organization) %>
 
 <div class="organization_container">
-<h2>Name:</h2>
+<h3>Name:</h3>
  <%= @organization.name %>
-<h2>Description:</h2>
+<h3>Description:</h3>
  <%= @organization.description %>
-<h2>Location:</h2>
+<h3>Location:</h3>
  <%= @organization.location %>
 </div>
 
-<h2>Events:</h2>
+<h3>Events:</h3>
 
  <% @events.each do |event| %>
 
