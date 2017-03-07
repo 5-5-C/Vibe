@@ -182,7 +182,6 @@ GEM
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
->>>>>>> 5c75580f4c48e463f5e900cdfa405c4c06fa4594
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.1)
@@ -300,12 +299,9 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
-<<<<<<< HEAD
   coffee-rails (~> 4.2)
   font-awesome-rails
-=======
   fog
->>>>>>> 5c75580f4c48e463f5e900cdfa405c4c06fa4594
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
