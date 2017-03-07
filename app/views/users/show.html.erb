@@ -16,14 +16,13 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://fillmurray.com/300/300" class="img-circle img-responsive"> </div>
+                <!-- <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://fillmurray.com/300/300" class="img-circle img-responsive"> </div> -->
 
 
                 <div class=" col-md-9 col-lg-9 ">
                   <table class="table table-user-information">
                     <tbody>
                     </br>
-                      <tr></tr>
                       <tr>
                         <td>About Me:</td>
                         <td><%= current_user.summary %></td>
@@ -56,7 +55,10 @@
                         <td>Join Date:</td>
                         <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
                       </tr>
-
+                      <tr>
+                        <td>Hours:</td>
+                        <td><%= current_user.hours %></td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>

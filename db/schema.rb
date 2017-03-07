@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170306215221) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -63,6 +68,8 @@ ActiveRecord::Schema.define(version: 20170306215221) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.boolean  "organization"
+    t.integer  "hours"
   end
 
 end
