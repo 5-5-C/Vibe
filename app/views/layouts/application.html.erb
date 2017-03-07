@@ -9,8 +9,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -26,17 +24,23 @@
        <span class="icon-bar"></span>
      </button>
       <a class="navbar-brand" href="/home">V.I.B.E</a>
+
     </div>
+
+
 
     <div class="collapse navbar-collapse" id="myNavbar">
 
     <ul class="nav navbar-nav navbar-right">
+
+
 
       <li><%= link_to "Organizations", organizations_url %></li>
 
       <% if current_user && current_user.organization? %>
 
       <li><%= link_to "Create Event", new_organization_path %></li>
+
 
       <li><%= link_to "Organization Profile", user_path(current_user) %></li>
 
