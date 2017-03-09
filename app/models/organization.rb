@@ -1,6 +1,6 @@
 class Organization < ApplicationRecord
   has_many :events
-  belongs_to :users
+  belongs_to :user
 end
 
   def create_event

@@ -38,10 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 5.0.0"
 gem 'fog'
 
-#
-# gem "paperclip", "~> 5.0.0"
-
-
+# figaro gem for api's
+gem "figaro"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -4,15 +4,11 @@
 <div class="organization_name">
 
 
-    
-        </body>
-      </html>
 
 
-    <%= link_to organization.name, organization_path(organization) %>
+    <h1><%= link_to organization.name, organization_path(organization) %><h1>
 
-    <h5>Type</h5>
-    <p><%= organization.description %></p>
+    <h5><%= organization.description %></h5>
 
   <br/>
     <% end %>

@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  has_many :events
+
+  has_and_belongs_to_many :events
+  has_one :organization
+
   has_secure_password
   validates_presence_of :first_name, :last_name, :email, :password_digest, presence: true
   validates_presence_of :first_name, :last_name, :email, uniqueness: true

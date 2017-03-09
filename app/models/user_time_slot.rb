@@ -1,2 +1,0 @@
-class UserTimeSlot < ApplicationRecord
-end

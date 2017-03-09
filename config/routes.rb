@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-  resources :timeslots
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :home
@@ -9,6 +8,8 @@ Rails.application.routes.draw do
   resources :organizations do
   resources :events
   end
+
+  get "event_signup/:id" => "user_events#create", as: "event_signup"
 
 
 
