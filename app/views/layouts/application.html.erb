@@ -10,6 +10,7 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -38,18 +39,18 @@
 
       <li><%= link_to "Organizations", organizations_url %></li>
 
-      <% if current_user && current_user.organization? %>
+      <% if current_user && current_user.org_admin? %>
 
       <li><%= link_to "Create Event", new_organization_path %></li>
 
 
-      <li><%= link_to "Organization Profile", user_path(current_user) %></li>
+      <li><%= link_to "Organization Profile", new_organization_path %></li>
 
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
 
 
 
-      <% elsif current_user && current_user.organization == false %>
+      <% elsif current_user && current_user.org_admin == false %>
 
       <li><%= link_to "My Profile", user_path(current_user) %></li>
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
@@ -61,7 +62,6 @@
   </div>
   </div>
 </nav>
-
 
 
 <%= yield %>
@@ -77,6 +77,7 @@
 
             </div>
         <hr>
+
     </div>
   </footer>
 </body>

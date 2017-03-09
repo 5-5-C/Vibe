@@ -1,4 +1,4 @@
-  <% if current_user.organization == false %>
+  <% if current_user.org_admin == false %>
 <div class="container">
 
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -16,8 +16,19 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <!-- <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://fillmurray.com/300/300" class="img-circle img-responsive"> </div> -->
+<<<<<<< HEAD
+                  <div class="profilepic">
+                <%= image_tag current_user.picture.url %>
+              </div>
+=======
+                  <!-- <div class="col-md-3 col-lg-3" align="center"> -->
+                    <img class="img-circle img-responsive">
+                    <%= image_tag current_user.picture %>
+                  </img>
+                  </div>
 
+
+>>>>>>> 84418eb26c0e95247d87034036e765764a7a86bc
 
                 <div class=" col-md-9 col-lg-9 ">
                   <table class="table table-user-information">
@@ -67,11 +78,9 @@
                  <div class="panel-footer">
                    <p>Profile Page Footer :)</p>
                 </div>
-
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
     <% else %>
 

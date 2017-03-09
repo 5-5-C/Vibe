@@ -1,25 +1,42 @@
 <h1><%= @organization.name %></h1>
 
+<% if current_user == @organization.user %>
+
+<p>works</p>
+
+<% end %>
+
 <%= link_to "Create an Event", new_organization_event_path(@organization) %>
 
 <div class="organization_container">
-<h2>Name:</h2>
- <%= @organization.name %>
-<h2>Description:</h2>
- <%= @organization.description %>
-<h2>Location:</h2>
- <%= @organization.location %>
-</div>
 
-<h2>Events:</h2>
+<h3>Description:</h3>
+ <%= @organization.description %>
+<h2 class = "location">Location:</h2>
+ <div id="location"> <%= @organization.location %> </div>
+
+ <iframe width="600" height="450" frameborder="0" style="border:0" src=<%=@address%>  allowfullscreen></iframe>
+
+
+</div>
+<div id="map"></div>
+
+<h3>Events:</h3>
 
  <% @events.each do |event| %>
 
-  <h3><%= event.name %></h3>
+  <h3><%= event.name %><%= link_to "sign up", event_signup_url(event) %></h3>
   <p><%= event.description %></p>
   <p><%= event.location %></p>
   <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
   <p><%= event.capacity %></p>
+  <p><%= event.start_time %></p>
+  <p><%= event.end_time %></p>
+
+
+
+  <h1>USERS</h1>
+
 
 
   <table class="table table-bordered table-definition mb-5">
@@ -32,6 +49,8 @@
              <th>Confirmed</th>
          </tr>
      </thead>
+     <% event.users.each do |user| %>
+
      <tbody>
          <tr>
              <td>
@@ -40,59 +59,24 @@
                      <span class="custom-control-indicator"></span>
                  </label>
              </td>
-             <td>Graham Moss</td>
-             <td>March 7, 2017</td>
-             <td>graham.moss@hotmail.com</td>
+
+             <td><%= user.first_name %> <%= user.last_name%></td>
+             <td><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
+             <td><%= user.email %></td>
              <td>No</td>
          </tr>
-         <tr>
-             <td>
-                 <label class="custom-control custom-checkbox">
-                     <input type="checkbox" class="custom-control-input">
-                     <span class="custom-control-indicator"></span>
-                 </label>
-             </td>
-             <td>Amena Khatun</td>
-             <td>March 7, 2017</td>
-             <td>whatever@whatever.com</td>
-             <td>No</td>
-         </tr>
-         <tr>
-             <td>
-                 <label class="custom-control custom-checkbox">
-                     <input type="checkbox" class="custom-control-input">
-                     <span class="custom-control-indicator"></span>
-                 </label>
-             </td>
-             <td>Joel C</td>
-             <td>March 7, 2017</td>
-             <td>whatever@whatever.com</td>
-             <td>No</td>
-         </tr>
-         <tr>
-             <td>
-                 <label class="custom-control custom-checkbox">
-                     <input type="checkbox" class="custom-control-input">
-                     <span class="custom-control-indicator"></span>
-                 </label>
-             </td>
-             <td>James Brock</td>
-             <td>March 7, 2017</td>
-             <td>whatever@whatever.com</td>
-             <td>No</td>
-         </tr>
+
      </tbody>
+     <% end %>
      <tfoot>
          <tr>
              <th></th>
              <th colspan="4">
-                 <button class="btn btn-primary float-right">Add User</button>
                  <button class="btn btn-default">Approve</button>
                  <button class="btn btn-default">Approve All</button>
              </th>
          </tr>
      </tfoot>
   </table>
-
 
        <% end %>
