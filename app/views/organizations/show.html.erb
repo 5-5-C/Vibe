@@ -11,10 +11,14 @@
 
 <h3>About Us:</h3>
  <%= @organization.description %>
-<h3>Location:</h3>
+<h2 class = "location">Location:</h2>
+ <div id="location"> <%= @organization.location %> </div>
 
- <%= @organization.location %>
+ <iframe width="600" height="450" frameborder="0" style="border:0" src=<%=@address%>  allowfullscreen></iframe>
+
+
 </div>
+<div id="map"></div>
 
 <h3>Events:</h3>
 
