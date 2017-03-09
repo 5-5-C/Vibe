@@ -143,3 +143,13 @@ span.input-group-addon i {
 .toppad
 {margin-top:20px;
 }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.profilepic {
+    border-radius: 50%;
+}

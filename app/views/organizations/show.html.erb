@@ -7,21 +7,26 @@
  <%= @organization.name %>
 <h2>Description:</h2>
  <%= @organization.description %>
-<h2>Location:</h2>
- <%= @organization.location %>
+<h2 class = "location">Location:</h2>
+ <div id="location"> <%= @organization.location %> </div>
+
+ <iframe width="600" height="450" frameborder="0" style="border:0" src=<%=@address%>  allowfullscreen></iframe>
+
 </div>
+<div id="map"></div>
 
 <h2>Events:</h2>
 
  <% @events.each do |event| %>
 
+
   <h3><%= event.name %></h3>
   <p><%= event.description %></p>
   <p><%= event.location %></p>
   <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
-  <p><%= event.capacity %></p>
+  <p><%= event.capacity %></p
 
- <% end %>
+
   <table class="table table-bordered table-definition mb-5">
      <thead class="table-warning ">
          <tr>
@@ -93,6 +98,5 @@
          </tr>
      </tfoot>
   </table>
-
 
        <% end %>
