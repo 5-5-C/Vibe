@@ -7,6 +7,47 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Organization.create(
+<<<<<<< HEAD
+name: "St. John's church",
+location: "222 Bathurst st.",
+description: "Church",
+imageURL:
+)
+
+Organization.create(
+name: "Women's Shelter Toronto",
+location: "777 Yonge St.",
+description: "Womens Shelter",
+imageURL:
+)
+
+Organization.create(
+name: "Toronto Homeless Shelter",
+location: "111 King St.",
+description: "Shelter",
+imageURL:
+)
+
+Organization.create(
+name: "Second Chance Rescue",
+location: "333 Queen St.",
+description: "Dog Shelter",
+imageURL:
+)
+
+Organization.create(
+name: "Make A Wish",
+location: "444 Front St.",
+description: "Children's Charity",
+imageURL:
+)
+
+Organization.create(
+name: "Plant a Tree ",
+location: "961 Planters lane",
+description: "Tree Planting",
+imageURL:
+=======
 name: "Ontario Science Center",
 location: "770 Don Mills Rd, North York, ON M3C 1T3",
 description: "Science Engagement Programs Councillor",
@@ -40,4 +81,5 @@ Organization.create(
 name: "Miles Nadal JCC",
 location: "750 Spadina Ave, Toronto, ON M5S 2J2",
 description: "Floor Hockey Academy Assistant",
+>>>>>>> c56a94a5279bf1afa23018ef22306d2dc40cf7c1
 )
