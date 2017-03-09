@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20170308232117) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.boolean  "org_admin"
     t.integer  "hours"
+    t.boolean  "org_admin"
   end
 
 end

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-  resources :timeslots
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :home
