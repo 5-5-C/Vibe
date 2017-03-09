@@ -30,27 +30,6 @@ class EventsController < ApplicationController
       end
     end
 
-
-
-
-
-
-
-
-    # @event.user = Event.find(session[:user_id])
-    # @event = Event.find(parans[:event][organizatons_id])
-    # if event.capacity < organization.remain_capacity(params[:event][:date], params[:event][:organization])
-    # elsif event.save
-    #     redirect_to user_parth(event.user)
-    #   elsif
-    #     redirect_to event_path(params[:event][:organization_id])
-    #
-    # else
-    #   flash[:error] = 'Sorry, this event is full! Try another one!'
-    #   redirect_to event_parth(params[:event][:organization_id])
-    # end
-
-
   def edit
     @event = Event.find(params[:id])
   end

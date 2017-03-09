@@ -4,8 +4,10 @@ class User < ApplicationRecord
   has_one :organization
 
   has_secure_password
-  validates_presence_of :first_name, :last_name, :email, :password_digest, presence: true
-  validates_presence_of :first_name, :last_name, :email, uniqueness: true
+
+  # validates :first_name, :last_name, :email, :password_digest, presence: true
+  # validates :first_name, :last_name, :email, uniqueness: true
+
 
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
 

@@ -6,10 +6,23 @@
 
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title"><%= current_user.first_name.capitalize %>'s Profile
+              <h3 class="panel-title">
+                <% if current_user.first_name %>
+                <tr>
+                  <td></td>
+                <td><%= current_user.first_name.capitalize %>'s Profile </td>
+              </tr>
+
+                <% else %>
+
+                <tr>
+                  <td>Name Missing:</td>
+                  <td></td>
+                </tr>
+
+                <% end %>
                 <span class="pull-right">
                 <i class="glyphicon glyphicon-edit"></i></a>
-
             <%= link_to 'Edit Profile', edit_user_path %>
          </span>
            </h3>
@@ -84,6 +97,7 @@
 
     <% else %>
 
-    <h1>Organization  Profile</h2>
+    <h1>Organization Profile</h2>
+      <%= link_to 'Edit Organization' %>
 
       <% end %>
