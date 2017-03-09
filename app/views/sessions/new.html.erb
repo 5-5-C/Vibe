@@ -1,13 +1,33 @@
-<h1>Login</h1>
 
-  <%= form_tag sessions_path do %>
-    <div class="field">
-      <%= label_tag :email %><br/>
-      <%= text_field_tag :email, params[:email] %>
-    </div>
-    <div class="field">
-      <%= label_tag :password %><br/>
-      <%= password_field_tag :password %>
-    </div>
-    <div class="actions"><%= submit_tag "Log in" %></div>
-    <% end %>
+
+
+    <script src="https://use.typekit.net/ayg4pcz.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <div class="container">
+    <h1 class="welcome text-center">Welcome Back</h1>
+        <div class="card card-container">
+        <h3 class='login_title text-center'>Login</h3>
+        <hr>
+
+        <%= form_tag sessions_path do %>
+
+
+        <div class="form-signin">
+            <span id="reauth-email" class="reauth-email"></span>
+            <p class="input_title">Email</p>
+            <%= text_field_tag :email, params[:email], type: "text", class: "login_box", id: "inputEmail", placeholder: "Email" %>
+
+
+
+            <p class="input_title">Password</p>
+            <%= password_field_tag :password, type: "password", class: "login_box", id: "inputPassword", placeholder: "" %> </br>
+
+
+            <%= submit_tag "Log In", type: "submit", class: "btn btn-lg btn-primary" %>
+
+            <% end %>
+
+        </div><!-- /form -->
+    </div><!-- /card-container -->
+</div><!-- /container -->
