@@ -42,11 +42,48 @@
 </div>
 
 <div class="upcoming-events">
-  <p class="event-bar">Upcoming Events</p>
+  <p class="event-bar">New Events</p>
+<!-- 
+   <% @events.each do |event| %>
+   <ul>
+
+   <div class="container">
+  		<div class="row">
+  			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+  				<ul class="event-list">
+  					<li>
+  						<time datetime="2014-07-20">
+  							<span class="day"><%= event.date.strftime("%d") %></span>
+                <span class="month"><%= event.date.strftime("%^b") %></span>
+  							<span class="time">ALL DAY</span>
+  						</time>
+  						<div class="info">
+  							<h2 class="title"><%= event.name %> |
+
+                  <% if current_user %>
+                 <%= link_to "Sign up", event_signup_url(event) %></h2>
+                 <% else %>
+                   Please Login to Apply for Events</h2>
+                 <% end %>
+
+                 </br>
+  							<p class="desc"><%= event.description %></p>
+                <p class="desc"><%= event.location %></p>
+
+  						</div>
+  					</li>
+  				</ul>
+  			</div>
+  		</div>
+  	</div>
+  </ul>
+
+  <% end %> -->
+
 </div>
 
 <div class="volunteer-opportunities">
-  <p class="volunteer-oppoertunities-bar">Volunteer Opportunities</p>
+  <p class="volunteer-oppoertunities-bar">Upcoming Events</p>
 </div>
 
 

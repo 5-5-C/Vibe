@@ -6,40 +6,53 @@
 
 <% end %>
 
-
-<div class="organization_container">
-
-<h3>About Us:</h3>
- <%= @organization.description %>
-<h2 class = "location">Location:</h2>
- <div id="location"> <%= @organization.location %> </div>
+<p><%= @organization.description %></p>
 
 
+<h2>Events</h2>
 
-</div>
-<div id="map"></div>
+<% @events.each do |event| %>
 
-<h3>Events:</h3>
 
- <% @events.each do |event| %>
 
-  <h3><%= event.name %>
-    <% if current_user %>
-   <%= link_to "Sign up", event_signup_url(event) %></h3>
-   <% else %>
-    | Please Login to Apply for Events</h3>
-   <% end %>
+ <div class="container">
+		<div class="row">
+      <% if current_user && current_user == @organization.user %>
+      <%= link_to "Edit Event", edit_organization_event_path(event) %></h2>
+      <% end %>
+			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+				<ul class="event-list">
+					<li>
+						<time datetime="2014-07-20">
+							<span class="day"><%= event.date.strftime("%d") %></span>
+              <span class="month"><%= event.date.strftime("%^b") %></span>
+							<span class="time">ALL DAY</span>
+						</time>
+						<div class="info">
+							<h2 class="title"><%= event.name %> |
 
-  <p>Event Description: <%= event.description %></p>
-  <p>Location: <%= event.location %></p>
-  <p><%= event.date.to_formatted_s(:long_ordinal) %>, <%= event.start_time.to_formatted_s(:time) %></p>
-  <p>Capacity: <%= event.capacity %></p>
+                <% unless event.users.include?(current_user) %>
+      <%= link_to "sign up", event_signup_url(event) %></h2>
+               <% else %>
+                 Signed Up!</h2>
+               <% end %>
+
+
+
+               </br>
+							<p class="desc"><%= event.description %></p>
+              <p class="desc"><%= event.location %></p>
+
+
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
 
   <% if current_user && current_user == @organization.user %>
-
-
-  <h1>USERS</h1>
-
 
 
   <table class="table table-bordered table-definition mb-5">
@@ -52,6 +65,7 @@
              <th>Confirmed</th>
          </tr>
      </thead>
+
      <% event.users.each do |user| %>
 
      <tbody>
@@ -68,11 +82,12 @@
              <td><%= user.email %></td>
              <td>No</td>
          </tr>
-
      </tbody>
      <% end %>
+
      <tfoot>
          <tr>
+
              <th></th>
              <th colspan="4">
                  <button class="btn btn-default">Approve</button>
@@ -84,6 +99,15 @@
 
   <% end %>
 
+<% end %>
 
 
-       <% end %>
+
+  <div class="organization_container">
+    <h3>Description:</h3>
+      <%= @organization.description %>
+    <h2 class = "location">Location:</h2>
+    <div id="location"> <%= @organization.location %> </div>
+    <div id="map"></div>
+    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
+  </div>
