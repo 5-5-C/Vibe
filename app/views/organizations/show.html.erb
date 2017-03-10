@@ -1,10 +1,11 @@
 <h1><%= @organization.name %></h1>
 
-  <% if current_user == @organization.user %>
-    <p>works</p>
-  <% end %>
+<% if current_user && current_user == @organization.user %>
 
-  <%= link_to "Create an Event", new_organization_event_path(@organization) %>
+  <h3><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
+
+<% end %>
+
 
   <div class="organization_container">
     <h3>Description:</h3>
@@ -24,15 +25,25 @@
     <h3><%= link_to "sign up", event_signup_url(event) %></h3>
   <% end %>
 
-      <p><%= event.description %></p>
-      <p><%= event.location %></p>
-      <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
-      <p><%= event.capacity %></p>
-      <p><%= event.start_time %></p>
-      <p><%= event.end_time %></p>
+  <h1>USERS</h1>
 
+  <p><%= event.description %></p>
+  <p><%= event.location %></p>
+  <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
+  <p><%= event.capacity %></p>
+  <p><%= event.start_time %></p>
+  <p><%= event.end_time %></p>
+
+
+  <p>Event Description: <%= event.description %></p>
+  <p>Location: <%= event.location %></p>
+  <p><%= event.date.to_formatted_s(:long_ordinal) %>, <%= event.start_time.to_formatted_s(:time) %></p>
+  <p>Capacity: <%= event.capacity %></p>
+
+  <% if current_user && current_user == @organization.user %>
 
   <h1>USERS</h1>
+
   <table class="table table-bordered table-definition mb-5">
      <thead class="table-warning ">
          <tr>
@@ -74,4 +85,5 @@
          </tr>
      </tfoot>
   </table>
+
 <% end %>
