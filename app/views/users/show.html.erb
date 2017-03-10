@@ -28,25 +28,16 @@
             <div class="panel-body">
               <div class="row">
 
-                    <img class="img-circle img-responsive">
-                    <%= image_tag current_user.picture %>
-                  </img>
-                  </div>
+                <%= image_tag current_user.picture %>
+
+                <!-- <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://fillmurray.com/300/300" class="img-circle img-responsive"> </div> -->
+
 
                 <div class=" col-md-9 col-lg-9 ">
                   <table class="table table-user-information">
                     <tbody>
                     </br>
-                    <% if current_user.picture %>
-                    <img class="img-circle img-responsive">
-                    <%= image_tag current_user.picture %>
-                    </img>
 
-                    <% else %>
-                    <img class="img-circle img-responsive">
-                    </img>
-
-                    <% end %>
                       <tr>
                         <td>About Me:</td>
                         <td><%= current_user.summary %></td>
@@ -84,12 +75,9 @@
 
         <div class="panel-footer">
 
-        <h3> Events signed up for: </h3>
+        <h3> Events that I've applied for: </h3>
         <% @events.each do |event|%>
-        <h4><%= event.name %></h4>
-        <h4><%= event.location %></h4>
-        <h4><%= event.start_time %></h4>
-        <h4><%= event.end_time %></h4>
+        <h4><%= link_to event.name %></h4>
         <% end %>
 
         </div>
