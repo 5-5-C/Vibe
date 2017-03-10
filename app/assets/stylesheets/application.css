@@ -15,6 +15,12 @@
  *= require_self
  */
 
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
  .social:hover {
      -webkit-transform: scale(1.1);
      -moz-transform: scale(1.1);
