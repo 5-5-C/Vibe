@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -40,6 +41,7 @@ gem 'fog'
 
 # figaro gem for api's
 gem "figaro"
+gem 'faker', '~> 1.7', '>= 1.7.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,6 +50,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -62,3 +65,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "font-awesome-rails"
+
+group :production do
+  gem 'rails_12factor'
+end
