@@ -7,28 +7,25 @@
 <% end %>
 
 
-<div class="organization_container">
+  <div class="organization_container">
+    <h3>Description:</h3>
+      <%= @organization.description %>
+    <h2 class = "location">Location:</h2>
+    <div id="location"> <%= @organization.location %> </div>
+    <div id="map"></div>
+    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
+  </div>
 
-<h3>About Us:</h3>
- <%= @organization.description %>
-<h2 class = "location">Location:</h2>
- <div id="location"> <%= @organization.location %> </div>
-
- <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
-
-
-</div>
-<div id="map"></div>
 
   <h3>Events:</h3>
    <% @events.each do |event| %>
    <h3><%= event.name %></h3>
    <h3><%= event.id %></h3>
-
-  <% unless event.users.include?(current_user) %>
-
-  <h3><%= link_to "sign up", event_signup_url(event) %></h3>
+    <% unless event.users.include?(current_user) %>
+    <h3><%= link_to "sign up", event_signup_url(event) %></h3>
   <% end %>
+
+  <h1>USERS</h1>
 
   <p><%= event.description %></p>
   <p><%= event.location %></p>
@@ -45,11 +42,7 @@
 
   <% if current_user && current_user == @organization.user %>
 
-
-
   <h1>USERS</h1>
-
-
 
   <table class="table table-bordered table-definition mb-5">
      <thead class="table-warning ">
@@ -61,6 +54,7 @@
              <th>Confirmed</th>
          </tr>
      </thead>
+
      <% event.users.each do |user| %>
 
      <tbody>
@@ -79,6 +73,7 @@
          </tr>
      </tbody>
      <% end %>
+
      <tfoot>
          <tr>
 
@@ -91,8 +86,4 @@
      </tfoot>
   </table>
 
-  <% end %>
-
-
-
-       <% end %>
+<% end %>
