@@ -1,11 +1,56 @@
-<h1><%= @organization.name %></h1>
+<style>
+.vibe-img-profile-showpage {
+  z-index: 2;
+  position: relative;
+  width: 600px;
+  margin-top: -510px;
+}
 
-<% if current_user && current_user == @organization.user %>
+  .org-name {
+    position: absolute;
+    z-index: 3;
+    margin-top: -552px;
+    margin-left: -170px;
+    transform: rotate(270deg);
+    color: white;
+    font-weight: bold;
+    font-size: 47px;
+    background: #0d2c40;
+    width: 481px;
+    height: 154px;
+    text-align: center;
+    padding-top: 74px;
+    padding-bottom: 18px;
+  }
+
+  .org-section {
+    z-index: 4;
+    margin-top: -640px;
+    margin-left: 225px;
+  }
+
+  .org-map {
+    margin-left: 650px;
+    margin-top: -251px;
+  }
+  footer { display:none;}
+
+
+</style>
+
+<img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
+<img src="/assets/vibe1.png" class="vibe-img-profile-showpage">
+
+
+  <h1 class="org-name"><%= @organization.name %></h1>
+
+  <% if current_user && current_user == @organization.user %>
 
   <h3><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
 
 <% end %>
 
+<section class="org-section">
 <p><%= @organization.description %></p>
 
 
@@ -108,6 +153,8 @@
       <%= @organization.description %>
     <h2 class = "location">Location:</h2>
     <div id="location"> <%= @organization.location %> </div>
-    <div id="map"></div>
-    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
+</section>
+    <div class="org-map" id="map">
+      <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
+    </div>
   </div>

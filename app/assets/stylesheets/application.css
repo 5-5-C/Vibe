@@ -15,9 +15,28 @@
  *= require_self
  */
 
-body {
+.main-container {
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.navbar-inverse {
+  background: #31c6dc;
+  border: 0;
+}
+
+.container-fluid {
+  background: #31c6dc;
+}
+
+.navbar-inverse .navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: white;
+  font-weight: bold;
 }
 
 
@@ -55,10 +74,12 @@ body {
  }
 
  footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    /*position: fixed;*/
+    /*left: 0;
+    bottom: 0;*/
     height: 100px;
     width: 100%;
     overflow:hidden;
+    padding: 1rem;
+
 }

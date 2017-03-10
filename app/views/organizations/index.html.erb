@@ -1,4 +1,10 @@
-<section class="Organizations">
+<div class="org">
+  <p class="org-title">Organizations</p>
+</div>
+
+<img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
+
+<section class="organizations">
   <% @organizations.each do |organization| %>
 
 <div class="organization_name">
@@ -7,5 +13,6 @@
 
     <h5><%= organization.description %></h5>
 
+</div>
   <br/>
     <% end %>
