@@ -5,13 +5,13 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all
 
     # @organization = Organization.find(params[:id])
-
   end
 
   def show
     @organization = Organization.find(params[:id])
     @events = @organization.events
     @users = User.all
+    @location = @organization.location
   end
 
   def new
@@ -23,7 +23,6 @@ class OrganizationsController < ApplicationController
     @organization.user = current_user
     if @organization.save
       redirect_to organizations_path
-
     else
       render "new"
     end
