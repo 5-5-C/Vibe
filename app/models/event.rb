@@ -15,10 +15,10 @@ class Event < ApplicationRecord
     end
   end
 
-
   def end_time_after_start_time
     if end_time.present? && end_time <= start_time
       errors.add(:end_time, "must be later than start time!")
     end
   end
+
 end

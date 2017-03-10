@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, :password_digest, presence: true
   validates :email, uniqueness: true
 
+
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
 
   def age

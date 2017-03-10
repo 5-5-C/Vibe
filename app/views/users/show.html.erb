@@ -1,8 +1,6 @@
 <div class="container">
 
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-
-
           <div class="panel panel-info">
             <div class="panel-heading">
               <% if current_user.first_name %>
@@ -14,18 +12,26 @@
 
                   <% end %>
 
+
                 <span class="pull-right">
                 <i class="glyphicon glyphicon-edit"></i></a>
 
-            <%= link_to 'Edit Profile', edit_user_path %>
+                  <%= link_to 'Edit Profile', edit_user_path %>
+                </span>
+              </h3>
+
+
          </span>
            </h3>
             </div>
+
             <div class="panel-body">
               <div class="row">
 
-
-
+                    <img class="img-circle img-responsive">
+                    <%= image_tag current_user.picture %>
+                  </img>
+                  </div>
 
                 <div class=" col-md-9 col-lg-9 ">
                   <table class="table table-user-information">
@@ -47,44 +53,54 @@
                       </tr>
                       <tr>
                         <td>Region:</td>
+
                         <td><%= current_user.region %></td>
                       </tr>
-                      <% if current_user.date_of_birth %>
-                      <tr>
-                        <td>Age:</td>
-                        <td><%= current_user.age %></td>
-                      </tr>
-
+                        <% if current_user.date_of_birth %>
+                        <tr>
+                          <td>Age:</td>
+                          <td><%= current_user.age %></td>
+                        </tr>
                       <% else %>
-
                       <tr>
                         <td>Age:</td>
-                        <td></td>
                       </tr>
 
                       <% end %>
-
 
                       <tr>
                         <td>Email:</td>
                         <td><%= current_user.email %></td>
                       </tr>
-                        <tr>
-                        <td>Join Date:</td>
-                        <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
-                      </tr>
                       <tr>
-                        <td>Hours:</td>
-                        <td><%= current_user.hours %></td>
+                        <td>Join Date:</td>
+                          <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-                 <div class="panel-footer">
-                   <p>Profile Page Footer :)</p>
-                </div>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+
+
+        <h3> Events signed up for: </h3>
+        <% @events.each do |event|%>
+        <h4><%= event.name %></h4>
+        <h4><%= event.location %></h4>
+        <h4><%= event.start_time %></h4>
+        <h4><%= event.end_time %></h4>
+        <% end %>
+
+
+
+        <div class="panel-footer">
+          <p>Profile Page Footer :)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+
+    <h1>Organization  Profile</h2>
+
+      <% end %>

@@ -3,13 +3,13 @@
     <p class="org-title">Organizations</p>
 </div>
 
+    <h1><%= link_to organization.name, organization_path(organization) %><h1>
 <section class="Organizations">
   <% @organizations.each do |organization| %>
 
 
   <div class="organization_name">
 
-      <%= link_to organization.name, organization_path(organization) %>
 
       <p class="org-description"><%= organization.description %></p>
 
