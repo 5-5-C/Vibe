@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # validates_presence_of :first_name, :last_name, :email, :password_digest, presence: true
   # validates_presence_of :first_name, :last_name, :email, uniqueness: true
   validates :email, :password_digest, presence: true
-  validates :email, uniqueness: true
+  # validates :email, uniqueness: true
 
 
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
