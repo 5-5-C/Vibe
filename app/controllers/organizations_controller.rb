@@ -28,6 +28,21 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def edit
+    @organization = Organization.find(params[:id])
+
+  end
+
+  def update
+  @organization = Organization.find(params[:id])
+
+  if @organization.update_attributes(organization_params)
+    redirect_to organization_path
+      else
+    render 'edit'
+  end
+end
+
   private
   def organization_params
     params.require(:organization).permit(:user_id, :name, :description, :location)
