@@ -1,6 +1,6 @@
 <h1><%= @organization.name %></h1>
 
-<% if current_user == @organization.user %>
+<% if current_user && current_user == @organization.user %>
 
   <h3><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
 
@@ -14,7 +14,6 @@
 <h2 class = "location">Location:</h2>
  <div id="location"> <%= @organization.location %> </div>
 
- <iframe width="600" height="450" frameborder="0" style="border:0" src=<%=@address%>  allowfullscreen></iframe>
 
 
 </div>
@@ -24,13 +23,19 @@
 
  <% @events.each do |event| %>
 
-  <h3><%= event.name %> <%= link_to "Sign up", event_signup_url(event) %></h3>
+  <h3><%= event.name %>
+    <% if current_user %>
+   <%= link_to "Sign up", event_signup_url(event) %></h3>
+   <% else %>
+    | Please Login to Apply for Events</h3>
+   <% end %>
+
   <p>Event Description: <%= event.description %></p>
   <p>Location: <%= event.location %></p>
   <p><%= event.date.to_formatted_s(:long_ordinal) %>, <%= event.start_time.to_formatted_s(:time) %></p>
   <p>Capacity: <%= event.capacity %></p>
 
-  <% if current_user == @organization.user %>
+  <% if current_user && current_user == @organization.user %>
 
 
   <h1>USERS</h1>

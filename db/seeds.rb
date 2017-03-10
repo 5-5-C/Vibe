@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Organization.create(
-<<<<<<< HEAD
 name: "St. John's church",
 location: "222 Bathurst st.",
 description: "Church",
@@ -47,11 +46,7 @@ name: "Plant a Tree ",
 location: "961 Planters lane",
 description: "Tree Planting",
 imageURL:
-=======
-name: "Ontario Science Center",
-location: "770 Don Mills Rd, North York, ON M3C 1T3",
-description: "Science Engagement Programs Councillor",
-)
+
 
 Organization.create(
 name: "Angel Emergency Alert Organization",
@@ -81,5 +76,4 @@ Organization.create(
 name: "Miles Nadal JCC",
 location: "750 Spadina Ave, Toronto, ON M5S 2J2",
 description: "Floor Hockey Academy Assistant",
->>>>>>> c56a94a5279bf1afa23018ef22306d2dc40cf7c1
 )

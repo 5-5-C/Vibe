@@ -10,6 +10,17 @@
 
     <%= form_for @user do |f| %>
 
+    <% if @user.errors.any? %>
+      <div class ="error_messages">
+        <h3>Signup Failed</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+      </div>
+    <% end %>
+
 
         <div class="form-signin">
             <span id="reauth-email" class="reauth-email"></span>
