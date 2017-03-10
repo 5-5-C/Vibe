@@ -6,33 +6,14 @@
 
 <% end %>
 
-
-  <div class="organization_container">
-    <h3>Description:</h3>
-      <%= @organization.description %>
-    <h2 class = "location">Location:</h2>
-    <div id="location"> <%= @organization.location %> </div>
-    <div id="map"></div>
-    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
-  </div>
+<p><%= @organization.description %></p>
 
 
-  <h3>Events:</h3>
-   <% @events.each do |event| %>
-   <h3><%= event.name %></h3>
-   <h3><%= event.id %></h3>
-    <% unless event.users.include?(current_user) %>
-    <h3><%= link_to "sign up", event_signup_url(event) %></h3>
-  <% end %>
+<h2>Events</h2>
 
-  <h1>USERS</h1>
+<% @events.each do |event| %>
 
-  <p><%= event.description %></p>
-  <p><%= event.location %></p>
-  <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
-  <p><%= event.capacity %></p>
-  <p><%= event.start_time %></p>
-  <p><%= event.end_time %></p>
+
 
  <div class="container">
 		<div class="row">
@@ -50,10 +31,10 @@
 						<div class="info">
 							<h2 class="title"><%= event.name %> |
 
-                <% if current_user %>
-               <%= link_to "Sign up", event_signup_url(event) %></h2>
+                <% unless event.users.include?(current_user) %>
+      <%= link_to "sign up", event_signup_url(event) %></h2>
                <% else %>
-                 Please Login to Apply for Events</h2>
+                 Signed Up!</h2>
                <% end %>
 
 
@@ -69,6 +50,7 @@
 			</div>
 		</div>
 	</div>
+
 
   <% if current_user && current_user == @organization.user %>
 
@@ -115,4 +97,17 @@
      </tfoot>
   </table>
 
+  <% end %>
+
 <% end %>
+
+
+
+  <div class="organization_container">
+    <h3>Description:</h3>
+      <%= @organization.description %>
+    <h2 class = "location">Location:</h2>
+    <div id="location"> <%= @organization.location %> </div>
+    <div id="map"></div>
+    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
+  </div>
