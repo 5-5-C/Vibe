@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170309014513) do
     t.text     "location"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
     t.string   "imageURL"
     t.integer  "user_id"
   end

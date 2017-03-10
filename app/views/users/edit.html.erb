@@ -1,59 +1,75 @@
+  <div class="container">
 
-<%= form_for @user, html: { multipart: true } do |f| %>
-<%= f.file_field :picture %>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
 
-  <% if @user.errors.any? %>
-    <div class ="error_messages">
-      <h3>Form is invalid</h3>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+
+
+                  <h3 class="panel-title"> Edit Profile</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+
+
+                <%= form_for @user, html: { multipart: true } do |f| %>
+
+                <% if @user.errors.any? %>
+                  <div class ="error_messages">
+                    <h3>Form is invalid</h3>
+                  <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                  </div>
+                <% end %>
+
+
+          <div class=" col-md-9 col-lg-9 ">
+            <table class="table table-user-information">
+              <tbody>
+              </br>
+
+                <tr>
+                  <td>Profile Picture:</td>
+                  <td><%= f.file_field :picture %></td>
+                </tr>
+
+                <tr>
+                  <td>First Name:</td>
+                  <td><%= f.text_field :first_name %></td>
+                </tr>
+                <tr>
+                  <td>Last Name:</td>
+                  <td><%= f.text_field :last_name %></td>
+                </tr>
+                <tr>
+                  <td>About Me:</td>
+                  <td><%= f.text_area :summary, :cols => "50", :rows => "10" %></td>
+                </tr>
+                <tr>
+                  <td>Region:</td>
+                  <td>    <%= select("user", "region", User::REGIONS) %></td>
+                </tr>
+                <tr>
+                  <td>Date of Birth:</td>
+                  <td> <%= f.date_select :date_of_birth,
+                        :start_year => 1920,
+                        order: [:month, :day, :year],
+                        prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel-heading">
+      <h3 class="panel-title"><%= f.submit "Update Profile" %></h3>
+      </div>
+     </div>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :first_name %><br/>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br/>
-    <%= f.text_field :last_name %>
   </div>
 
-  <div class="field">
-    <%= f.label :date_of_birth%>
-    <%= f.date_select :date_of_birth,
-          :start_year => 1920,
-          order: [:month, :day, :year],
-          prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %>
-  </div>
-
-
-  <div class="field">
-    <div class="dropdown"></div>
-    <div class="field">Select your Region</div>
-    <%= select("user", "region", User::REGIONS, {include_blank: true}) %>
-  </div>
-
-  <div>
-     <%= f.label :volunteer_position %><br/>
-     <%= f.select :volunteer_position, options_for_select([["High School Community Service", 1], ["Event Committee", 2], ["board", 3], ["Long-Term (More than 3 months)", 4], ["Short Term (3 months or less)", 4]]) %>
-   </div>
-
-  <div class="field">Summary</div>
-    <%= f.text_area :summary, :cols => "50", :rows => "10" %>
-  </div>
-
-
-  <div class="field_with_errors">
-   <input id="article_title" name="article[title]" size="30" type="text" value="">
-  </div>
-
-
-  <div class = "actions">
-    <%= f.submit %>
-  </div>
-
-  <% end %>
+          <% end %>
