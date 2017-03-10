@@ -3,6 +3,7 @@ class OrganizationsController < ApplicationController
 
   def index
     @organizations = Organization.all
+
     # @organization = Organization.find(params[:id])
 
   end
@@ -26,6 +27,11 @@ class OrganizationsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def edit
+    @organization = Organization.find(params[:id])
+
   end
 
   private

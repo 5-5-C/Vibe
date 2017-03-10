@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_and_belongs_to_many :events
   has_one :organization
 
@@ -25,3 +26,23 @@ class User < ApplicationRecord
   do_not_validate_attachment_file_type :picture
 
 end
+
+def a_method_used_for_validation_purposes
+    errors.add(:name, "You need a name!")
+end
+
+
+
+
+# user = User.new
+# user.valid? # => false
+# user.errors[:name]
+#  ["can't be blank", "is too short (minimum is 3 characters)"]
+
+# user.errors.clear
+# user.errors.empty? # => true
+#
+# user.save # => false
+#
+# user.errors[:name]
+# => ["can't be blank", "is too short (minimum is 3 characters)"]

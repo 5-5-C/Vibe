@@ -1,11 +1,13 @@
-<section class="Organizations">
   <% @organizations.each do |organization| %>
 
 <div class="organization_name">
 
-    <h1><%= link_to organization.name, organization_path(organization) %><h1>
+    <%= link_to "Show", 'organizations' %>
 
-    <h5><%= organization.description %></h5>
-
+    <p><%= organization.name %></p>
+    <p><%= organization.description %></p>
+    <p><%= organization.location %></p>
   <br/>
     <% end %>
+
+</div>

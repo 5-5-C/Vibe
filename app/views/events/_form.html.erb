@@ -25,7 +25,7 @@
 <%= f.text_field :location %><br />
 </div>
   <div class="field">
-    <%= f.label :date%>
+    <%= f.label :date %>
     <%= f.date_select :date,
           :start_year => 2017,
           order: [:month, :day, :year],
@@ -33,19 +33,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :start_time%>
-    <%= f.time_field :start_time%>
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time, {ampm: true} %>
   </div>
 
   <div class="field">
-    <%= f.label :end_time%>
+    <%= f.label :end_time %>
     <%= f.time_field :end_time %>
 
   </div>
 
   <div class="field">
-    <%= f.label :capacity%>
+    <%= f.label :capacity %>
     <%= f.select :capacity, options_for_select(1..500) %>
+
+
+
+
 
   </div>
 

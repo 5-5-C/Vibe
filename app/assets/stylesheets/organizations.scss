@@ -1,3 +1,30 @@
 // Place all the styles related to the organizations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Organizations {
+  margin: 125px 0px 0px 300px;
+}
+
+
+.org {
+  position: absolute;
+  background: #0d2c40;
+  color: white;
+  width: 231px;
+  height: 625px;
+  margin-top: 125px;
+}
+
+.org-title {
+  transform: rotate(270deg);
+  float: left;
+  font-weight: bold;
+  font-size: 80px;
+  margin: 250px 0px 0px -154px;
+}
+
+
+.organization_name {
+
+}

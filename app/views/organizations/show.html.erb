@@ -2,33 +2,35 @@
 
 <% if current_user == @organization.user %>
 
-<p>works</p>
+  <h3><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
 
 <% end %>
 
-<%= link_to "Create an Event", new_organization_event_path(@organization) %>
 
 <div class="organization_container">
 
-<h3>Description:</h3>
+<h3>About Us:</h3>
  <%= @organization.description %>
-<h3>Location:</h3>
+<h2 class = "location">Location:</h2>
+ <div id="location"> <%= @organization.location %> </div>
 
- <%= @organization.location %>
+ <iframe width="600" height="450" frameborder="0" style="border:0" src=<%=@address%>  allowfullscreen></iframe>
+
+
 </div>
+<div id="map"></div>
 
 <h3>Events:</h3>
 
  <% @events.each do |event| %>
 
-  <h3><%= event.name %><%= link_to "sign up", event_signup_url(event) %></h3>
-  <p><%= event.description %></p>
-  <p><%= event.location %></p>
-  <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
-  <p><%= event.capacity %></p>
-  <p><%= event.start_time %></p>
-  <p><%= event.end_time %></p>
+  <h3><%= event.name %> <%= link_to "Sign up", event_signup_url(event) %></h3>
+  <p>Event Description: <%= event.description %></p>
+  <p>Location: <%= event.location %></p>
+  <p><%= event.date.to_formatted_s(:long_ordinal) %>, <%= event.start_time.to_formatted_s(:time) %></p>
+  <p>Capacity: <%= event.capacity %></p>
 
+  <% if current_user == @organization.user %>
 
 
   <h1>USERS</h1>
@@ -74,6 +76,9 @@
          </tr>
      </tfoot>
   </table>
+
+  <% end %>
+
 
 
        <% end %>
