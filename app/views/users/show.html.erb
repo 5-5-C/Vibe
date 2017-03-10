@@ -82,6 +82,7 @@
           </div>
         </div>
 
+        <div class="panel-footer">
 
         <h3> Events signed up for: </h3>
         <% @events.each do |event|%>
@@ -91,16 +92,7 @@
         <h4><%= event.end_time %></h4>
         <% end %>
 
-
-
-        <div class="panel-footer">
-          <p>Profile Page Footer :)</p>
         </div>
       </div>
     </div>
   </div>
-<% else %>
-
-    <h1>Organization  Profile</h2>
-
-      <% end %>

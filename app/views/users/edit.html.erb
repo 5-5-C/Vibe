@@ -1,75 +1,75 @@
-  <div class="container">
+<div class="container">
 
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-
-
-            <div class="panel panel-info">
-              <div class="panel-heading">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
 
-                  <h3 class="panel-title"> Edit Profile</h3>
-              </div>
-              <div class="panel-body">
-                <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-heading">
 
 
-                <%= form_for @user, html: { multipart: true } do |f| %>
-
-                <% if @user.errors.any? %>
-                  <div class ="error_messages">
-                    <h3>Form is invalid</h3>
-                  <ul>
-                    <% @user.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                    <% end %>
-                  </ul>
-                  </div>
-                <% end %>
+                <h3 class="panel-title"> Edit Profile</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
 
 
-          <div class=" col-md-9 col-lg-9 ">
-            <table class="table table-user-information">
-              <tbody>
-              </br>
+              <%= form_for @user, html: { multipart: true } do |f| %>
 
-                <tr>
-                  <td>Profile Picture:</td>
-                  <td><%= f.file_field :picture %></td>
-                </tr>
+              <% if @user.errors.any? %>
+                <div class ="error_messages">
+                  <h3>Form is invalid</h3>
+                <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+                </ul>
+                </div>
+              <% end %>
 
-                <tr>
-                  <td>First Name:</td>
-                  <td><%= f.text_field :first_name %></td>
-                </tr>
-                <tr>
-                  <td>Last Name:</td>
-                  <td><%= f.text_field :last_name %></td>
-                </tr>
-                <tr>
-                  <td>About Me:</td>
-                  <td><%= f.text_area :summary, :cols => "50", :rows => "10" %></td>
-                </tr>
-                <tr>
-                  <td>Region:</td>
-                  <td>    <%= select("user", "region", User::REGIONS) %></td>
-                </tr>
-                <tr>
-                  <td>Date of Birth:</td>
-                  <td> <%= f.date_select :date_of_birth,
-                        :start_year => 1920,
-                        order: [:month, :day, :year],
-                        prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+        <div class=" col-md-9 col-lg-9 ">
+          <table class="table table-user-information">
+            <tbody>
+            </br>
+
+              <tr>
+                <td>Profile Picture:</td>
+                <td><%= f.file_field :picture %></td>
+              </tr>
+
+              <tr>
+                <td>First Name:</td>
+                <td><%= f.text_field :first_name %></td>
+              </tr>
+              <tr>
+                <td>Last Name:</td>
+                <td><%= f.text_field :last_name %></td>
+              </tr>
+              <tr>
+                <td>About Me:</td>
+                <td><%= f.text_area :summary, :cols => "50", :rows => "10" %></td>
+              </tr>
+              <tr>
+                <td>Region:</td>
+                <td>    <%= select("user", "region", User::REGIONS) %></td>
+              </tr>
+              <tr>
+                <td>Date of Birth:</td>
+                <td> <%= f.date_select :date_of_birth,
+                      :start_year => 1920,
+                      order: [:month, :day, :year],
+                      prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="panel-heading">
-      <h3 class="panel-title"><%= f.submit "Update Profile" %></h3>
-      </div>
-     </div>
     </div>
+    <div class="panel-heading">
+    <h3 class="panel-title"><%= f.submit "Update Profile" %></h3>
+    </div>
+   </div>
   </div>
+</div>
 
-          <% end %>
+        <% end %>
