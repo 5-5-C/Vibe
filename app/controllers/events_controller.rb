@@ -11,7 +11,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @event = @event.projects
   end
 
   def new
@@ -52,13 +51,3 @@ class EventsController < ApplicationController
   end
 
 end
-
-
-
-
-# t.string   "name"
-# t.string   "description"
-# t.date     "date"
-# t.string   "location"
-#
-#

@@ -14,21 +14,29 @@
 <h2 class = "location">Location:</h2>
  <div id="location"> <%= @organization.location %> </div>
 
+ <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
 
 
 </div>
 <div id="map"></div>
 
-<h3>Events:</h3>
+  <h3>Events:</h3>
+   <% @events.each do |event| %>
+   <h3><%= event.name %></h3>
+   <h3><%= event.id %></h3>
 
- <% @events.each do |event| %>
+  <% unless event.users.include?(current_user) %>
 
-  <h3><%= event.name %>
-    <% if current_user %>
-   <%= link_to "Sign up", event_signup_url(event) %></h3>
-   <% else %>
-    | Please Login to Apply for Events</h3>
-   <% end %>
+  <h3><%= link_to "sign up", event_signup_url(event) %></h3>
+  <% end %>
+
+  <p><%= event.description %></p>
+  <p><%= event.location %></p>
+  <p><%= event.date.to_formatted_s(:long_ordinal) %></p>
+  <p><%= event.capacity %></p>
+  <p><%= event.start_time %></p>
+  <p><%= event.end_time %></p>
+
 
   <p>Event Description: <%= event.description %></p>
   <p>Location: <%= event.location %></p>
@@ -36,6 +44,7 @@
   <p>Capacity: <%= event.capacity %></p>
 
   <% if current_user && current_user == @organization.user %>
+
 
 
   <h1>USERS</h1>
@@ -68,11 +77,11 @@
              <td><%= user.email %></td>
              <td>No</td>
          </tr>
-
      </tbody>
      <% end %>
      <tfoot>
          <tr>
+
              <th></th>
              <th colspan="4">
                  <button class="btn btn-default">Approve</button>
