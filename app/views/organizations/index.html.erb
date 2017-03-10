@@ -1,18 +1,11 @@
-
-<div class="org">
-    <p class="org-title">Organizations</p>
-</div>
-
-    <h1><%= link_to organization.name, organization_path(organization) %><h1>
 <section class="Organizations">
   <% @organizations.each do |organization| %>
 
+<div class="organization_name">
 
-  <div class="organization_name">
+    <h1><%= link_to organization.name, organization_path(organization) %><h1>
 
+    <h5><%= organization.description %></h5>
 
-      <h5 class="org-type">Type</h5>
-      <p class="org-description"><%= organization.description %></p>
-
-    <br/>
-      <% end %>
+  <br/>
+    <% end %>
