@@ -25,15 +25,26 @@
 
   .org-section {
     z-index: 4;
-    margin-top: -640px;
+    margin-top: -713px;
     margin-left: 225px;
   }
 
   .org-map {
-    margin-left: 650px;
-    margin-top: -251px;
+    margin-top: 118px;
   }
+
   footer { display:none;}
+
+  .org-show-buttons {
+    position: absolute;
+    margin-top: -772px;
+    z-index: 5;
+  }
+
+  .col-sm-offset-2 {
+      margin-left: 16.66666667%;
+      z-index: 5;
+  }
 
 
 </style>
@@ -46,12 +57,11 @@
 
   <% if current_user && current_user == @organization.user %>
 
-  <h3><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
+  <h3 class="org-show-buttons"><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
 
 <% end %>
 
 <section class="org-section">
-<p><%= @organization.description %></p>
 
 
 <h2>Events</h2>
@@ -149,10 +159,9 @@
 
 
   <div class="organization_container">
-    <h3>Description:</h3>
+    <h3 class="org-description">Description:
       <%= @organization.description %>
-    <h2 class = "location">Location:</h2>
-    <div id="location"> <%= @organization.location %> </div>
+    </h3>
 </section>
     <div class="org-map" id="map">
       <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
