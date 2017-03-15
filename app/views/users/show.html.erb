@@ -1,4 +1,56 @@
-<div class="container">
+<style>
+.img-profile-showpage{
+  width: 100%;
+  background-size: auto;
+  opacity: 0.2;
+  margin-top: -500px
+  z-index: 1;
+  position: absolute;
+  left:0px;
+}
+
+.user-profile-container {
+  position: relative;
+  z-index: 2;
+}
+
+.vibe-img-profile-showpage {
+  position: relative;
+  width: 810px;
+  margin-top: 80px;
+  margin-left: 445px;
+}
+
+.panel-info>.panel-heading {
+  background-color: #f15b31;
+}
+
+.panel-title {
+  font-weight: bold;
+}
+
+.panel-info {
+  border: none;
+}
+
+.panel-info>.panel-heading {
+}
+
+.panel-body {
+  padding: 15px;
+padding-top: 0px;
+}
+
+.panel-footer {
+  background-color: #0d2c40;
+  color: white;
+}
+
+</style>
+
+
+
+<div class="user-profile-container">
 
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
           <div class="panel panel-info">
@@ -28,7 +80,7 @@
             <div class="panel-body">
               <div class="row">
 
-                <%= image_tag current_user.picture %>
+                <!-- <%= image_tag current_user.picture %> -->
 
                 <!-- <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://fillmurray.com/300/300" class="img-circle img-responsive"> </div> -->
 
@@ -75,7 +127,7 @@
 
         <div class="panel-footer">
 
-        <h3> Events that I've applied for: </h3>
+        <h3> My Events </h3>
         <% @events.each do |event|%>
         <h4><%= link_to event.name %></h4>
         <% end %>
@@ -84,3 +136,5 @@
       </div>
     </div>
   </div>
+<img src="/assets/peoplevibe.jpg" class="img-profile-showpage">
+<img src="/assets/vibe3.png" class="vibe-img-profile-showpage">
