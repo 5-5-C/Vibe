@@ -41,7 +41,7 @@ gem 'fog'
 
 # figaro gem for api's
 gem "figaro"
-gem 'faker', '~> 1.7', '>= 1.7.3'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,4 +1,9 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
-  layout 'mailer'
+ default from: 'bitmakergroup@gmail.com'
+
+
+ def send_notification(user, pledge_msg)
+   @user = user
+   mail(to: @user.email, subject: pledge_msg)
+ end
 end
