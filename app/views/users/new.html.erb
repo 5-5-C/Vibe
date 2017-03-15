@@ -23,16 +23,15 @@
 
 
 
-
         <div class="form-signin">
             <span id="reauth-email" class="reauth-email"></span>
             <p class="input_title">Email</p>
+            <%= f.text_field :email, type: "text", class: "login_box", id: "inputEmail", placeholder: "Email" %>
 
 
 
-
-            <!-- <p class="input_title">Password</p> -->
-            <!-- <%= f.text_field :password, type: "password", class: "login_box", id: "inputEmail", placeholder: "Password" %> -->
+            <p class="input_title">Password</p>
+            <%= f.text_field :password, type: "password", class: "login_box", id: "inputEmail", placeholder: "Password" %>
 
             <p class="input_title">Confirm Password</p>
             <%= f.text_field :password_confirmation, type: "password", class: "login_box", id: "inputEmail", placeholder: "Confirm" %>
