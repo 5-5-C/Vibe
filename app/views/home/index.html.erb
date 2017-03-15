@@ -1,3 +1,29 @@
+<style>
+.event-list {
+  width: 300px;
+  height: 398px;
+  margin-bottom: -37%;
+  margin-top: 2%;
+  margin-left: 19%;
+}
+.title {
+  font-size: 14px;
+}
+.event-list > li > .info > .title,
+.event-list > li > .info > .desc {
+  padding: 0px 10px;
+  font-size: 14px;
+}
+.pop-org {
+  float: right;
+  background-color: white;
+  width: 400px;
+  height: 400px;
+}
+.col-sm-offset-2 {
+    margin-left: 12.666667%;
+}
+</style>
 <body>
 
 <section>
@@ -5,7 +31,8 @@
 <main>
 <h2 class=intro-header>
   <p class="intro-writeup">Connecting You with Great Organizations</p>
-  <button class="bounceInLeft">Learn More</button>
+<a href="#about-us">
+  <button class="bounceInLeft">Learn More</button></a>
   <div class="logo-circle">
     <p class="logo-letter">V</p>
   </div>
@@ -35,16 +62,17 @@
 
 </section>
 
-<div class="about-us">
+<div class="about-us" id="about-us">
   <p class="vertical-text">Who are we?</p>
   <p class="about-us-writeup">Whether you are looking to add experience to your resume, attain community service hours, or to simply contribute to your community, VIBE has you covered.  We'll help you connect with organizations that are taylored for you!</p>
 </div>
 
 <div class="upcoming-events">
   <p class="event-bar">New Events</p>
-<!--
+
    <% @events.each do |event| %>
    <ul>
+
    <div class="container">
   		<div class="row">
   			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
@@ -57,14 +85,17 @@
   						</time>
   						<div class="info">
   							<h2 class="title"><%= event.name %> |
+
                   <% if current_user %>
                  <%= link_to "Sign up", event_signup_url(event) %></h2>
                  <% else %>
                    Please Login to Apply for Events</h2>
                  <% end %>
+
                  </br>
   							<p class="desc"><%= event.description %></p>
                 <p class="desc"><%= event.location %></p>
+
   						</div>
   					</li>
   				</ul>
@@ -72,12 +103,13 @@
   		</div>
   	</div>
   </ul>
-  <% end %> -->
+
+  <% end %>
 
 </div>
 
 <div class="volunteer-opportunities">
-  <p class="volunteer-oppoertunities-bar">Upcoming Events</p>
+  <p class="volunteer-oppoertunities-bar">Popular Organizations</p>
 </div>
 
 
