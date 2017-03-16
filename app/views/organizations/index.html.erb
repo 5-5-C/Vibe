@@ -2,16 +2,31 @@
   <p class="org-title">Organizations</p>
 </div>
 
+<%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
+<%= submit_tag "Search", :name => nil %>
+
+<% end %>
+
 <img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
 
 <section class="organizations">
   <% @organizations.each do |organization| %>
 
-<div class="organization_name">
 
     <h1><%= link_to organization.name, organization_path(organization) %><h1>
 
     <h5><%= organization.description %></h5>
+
+    <% if organization.image_url %>
+
+    <%= image_tag organization.image_url %>
+
+    <% else %>
+
+<img src="http://www.placebear.com/250/200">
+
+    <% end %>
 
 </div>
   <br/>

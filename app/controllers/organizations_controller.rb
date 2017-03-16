@@ -4,12 +4,19 @@ class OrganizationsController < ApplicationController
   def index
     @organizations = Organization.all
 
+    if params[:search]
+      @organizations = Organization.search(params[:search]).order("created_at DESC")
+    else
+      @organizations = Organization.all.order("created_at DESC")
+
     # @organization = Organization.find(params[:id])
   end
+end
 
   def show
     @organization = Organization.find(params[:id])
     @events = @organization.events
+    
     @users = User.all
     @location = @organization.location
   end
