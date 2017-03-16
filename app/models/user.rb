@@ -12,6 +12,14 @@ class User < ApplicationRecord
 
   REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
 
+  SKILLS = ["Administrative", "Analytical", "Artistic/Creative", "Budgeting",
+  "Communicaton", "Computer", "Conflict Reslution", "Creating Ideas",
+  "Creating Procedures", "Creating New Solutions", "Customer Service",
+  "Decision Making", "Fundraising", "Handling Complaints", "Innovative",
+  "Leadership", "Learning", "Logical Thinking", "Maining High Levels of Activity",
+  "Negotiating", "Networking", "Organizational", "Planning", "Problem Solving",
+  "Reporting", "Team Work", "Technical", "Time Management", "Training"]
+
   def age
     ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
   end
@@ -31,6 +39,10 @@ end
 
 def a_method_used_for_validation_purposes
     errors.add(:name, "You need a name!")
+end
+
+def update_progress_bar
+  
 end
 
 
