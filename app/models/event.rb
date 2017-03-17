@@ -22,3 +22,7 @@ class Event < ApplicationRecord
   end
 
 end
+
+def calculate_events_hours
+  hours = ((start_time - end_time) / 1.hour).round
+end

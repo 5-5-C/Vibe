@@ -10,13 +10,13 @@ class User < ApplicationRecord
   # validates :email, uniqueness: true
 
 
-  REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
+  REGIONS = ["","City of Toronto", "Peel", "Durham", "Halton", "York"]
 
-  SKILLS = ["Administrative", "Analytical", "Artistic/Creative", "Budgeting",
-  "Communicaton", "Computer", "Conflict Reslution", "Creating Ideas",
+  SKILLS = ["","Administrative", "Analytical", "Artistic/Creative", "Budgeting",
+  "Communicaton", "Computer", "Conflict Resolution", "Creating Ideas",
   "Creating Procedures", "Creating New Solutions", "Customer Service",
   "Decision Making", "Fundraising", "Handling Complaints", "Innovative",
-  "Leadership", "Learning", "Logical Thinking", "Maining High Levels of Activity",
+  "Leadership", "Learning", "Logical Thinking", "Maintaining High Levels of Activity",
   "Negotiating", "Networking", "Organizational", "Planning", "Problem Solving",
   "Reporting", "Team Work", "Technical", "Time Management", "Training"]
 
@@ -37,26 +37,12 @@ class User < ApplicationRecord
 
 end
 
+def all_skills
+  skill = Skill.select(params)
+  current_user.skills << skills
+end
+
+
 def a_method_used_for_validation_purposes
     errors.add(:name, "You need a name!")
 end
-
-def update_progress_bar
-  
-end
-
-
-
-
-# user = User.new
-# user.valid? # => false
-# user.errors[:name]
-#  ["can't be blank", "is too short (minimum is 3 characters)"]
-
-# user.errors.clear
-# user.errors.empty? # => true
-#
-# user.save # => false
-#
-# user.errors[:name]
-# => ["can't be blank", "is too short (minimum is 3 characters)"]

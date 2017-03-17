@@ -12,11 +12,15 @@
     <h1><%= link_to organization.name, organization_path(organization) %><h1>
 
     <h5><%= organization.description %></h5>
+    <% if organization.image_url %>
     <%= image_tag organization.image_url %>
+      <% else %>
+    <p>No Image</p>
+    <% end %>
 
 
 </div>
-  <br/>
+  </br>
     <% end %>
 
     <!-- <div class="container">

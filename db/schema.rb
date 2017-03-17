@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316151524) do
+ActiveRecord::Schema.define(version: 20170317185929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,11 @@ ActiveRecord::Schema.define(version: 20170316151524) do
     t.integer  "hours"
     t.string   "skills"
     t.integer  "goals"
+    t.string   "skill1"
+    t.string   "skill2"
+    t.string   "skill3"
+    t.string   "skill4"
+    t.string   "skill5"
   end
 
 end

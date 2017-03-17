@@ -104,11 +104,29 @@
                         order: [:month, :day, :year],
                         prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %></td>
                 </tr>
-                <tr class="skills">
-                  <td> Your Top 5 Skills </td>
-                  <td> <%= select("user", "skills", User::SKILLS) %></td>
+                <tr>
+                  <td> Hour Goals: </td>
+                  <td> <%= number_field(:goals, :hours) %></td>
                 </tr>
 
+                <tr>
+                  <td> Skills: </td>
+                  <tr>
+                  <td> <%= select("user", "skill1", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill2", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill3", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill4", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill5", User::SKILLS) %></td><BR>
+                </tr>
+                </tr>
               </tbody>
             </table>
           </div>

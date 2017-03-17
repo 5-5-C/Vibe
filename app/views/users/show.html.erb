@@ -127,7 +127,16 @@ padding-top: 0px;
                         <td>Email:</td>
                         <td><%= current_user.email %></td>
                       </tr>
+
                       <tr>
+                        <td>skills:</td>
+                        <td><%= current_user.skill1 %></td>
+                        <td><%= current_user.skill2 %></td>
+                        <td><%= current_user.skill3 %></td>
+                        <td><%= current_user.skill4 %></td>
+                        <td><%= current_user.skill5 %></td>
+                      </tr>
+
                         <td>Join Date:</td>
                           <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
                       </tr>
@@ -152,6 +161,11 @@ padding-top: 0px;
 <img src="/assets/vibe3.png" class="vibe-img-profile-showpage">
 
 
-  <div id="myGoals">
-    <div id="myProgress"></div>
+<tr>
+  <td>hours Completed:</td>
+  <td><%= current_user.hours %></td>
+</tr>
+<tr>
+  <div id="Goals">
+    <div id="Hours"></div>
   </div>
