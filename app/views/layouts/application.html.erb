@@ -35,34 +35,29 @@
     <div class="collapse navbar-collapse" id="myNavbar">
 
 
-    <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
 
-      
+
 
 
       <li><%= link_to "Organizations", organizations_url %></li>
 
-      <% if current_user && current_user.org_admin? %>
+          <% if current_user && current_user.org_admin? %>
 
-      <li><%= link_to "Create Event", new_organization_path %></li>
-
-
+      <!-- <li><%#= link_to "Create Event", new_organization_event_path(@organization) %></li> -->
       <li><%= link_to "Organization Profile", new_organization_path %></li>
-
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
 
-
-
-      <% elsif current_user && current_user.org_admin == false %>
+          <% elsif current_user && current_user.org_admin == false %>
 
       <li><%= link_to "My Profile", user_path(current_user) %></li>
       <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
-      <% else %>
+          <% else %>
       <li><%= link_to "Log in", new_session_path %></li>
       <li><%= link_to "Sign up", new_user_path %></li>
-      <% end %>
-    </ul>
-  </div>
+          <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -71,7 +66,6 @@
 </section>
 <!-- <footer>
     <div class="container">
-        <hr>
             <div class="text-center center-block">
 
               <i id="social-fb" class="fa fa-facebook-square fa-3x social"></i>
@@ -80,7 +74,6 @@
               <i id="social-em" class="fa fa-envelope-square fa-3x social"></i>
 
             </div>
-        <hr>
 
     </div>
   </footer> -->
