@@ -21,6 +21,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     @organization.user = current_user
+    @organization.image_url = "http://glendalecitychurch.org/wp-content/uploads/2015/01/temp-citychurch-outside.jpg"
     if @organization.save
       redirect_to organizations_path
     else

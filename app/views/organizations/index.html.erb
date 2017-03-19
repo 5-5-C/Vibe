@@ -61,34 +61,7 @@ color: #f15b31;
           <p class="lead"><%= organization.description %></p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src= <%= image_tag organization.image_url %> alt="Generic placeholder image">
+          <%= image_tag organization.image_url, :class => "featurette-image img-responsive center-block" %>
         </div>
       </div>
-
-      <hr class="featurette-divider">
-
-      <!-- <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %><span class="text-muted">See for yourself.</span></h2>
-          <p class="lead"><%= organization.description %></p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src= <%= image_tag organization.image_url %> alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %></span></h2>
-          <p class="lead"><%= organization.description %></p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src= <%= image_tag organization.image_url %> alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider"> -->
-
-    <% end %>
+      <% end %>
