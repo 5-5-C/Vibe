@@ -65,5 +65,4 @@ ActiveRecord::Schema.define(version: 20170310085614) do
     t.integer  "hours"
   end
 
-
 end
