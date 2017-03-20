@@ -11,6 +11,54 @@
 
 <p><%= @event.location %></p>
 
-<div class="org-map" id="map">
+<% if current_user && current_user == @organization.user %>
+
+
+<table class="table table-bordered table-definition mb-5">
+   <thead class="table-warning ">
+       <tr>
+           <th>APPLIED USERS</th>
+           <th>Name</th>
+           <th>Application Date</th>
+           <th>E-mail address</th>
+           <th>Confirmed</th>
+       </tr>
+   </thead>
+
+   <% @event.users.each do |user| %>
+
+   <tbody>
+       <tr>
+           <td>
+               <label class="custom-control custom-checkbox">
+                   <input type="checkbox" class="custom-control-input">
+                   <span class="custom-control-indicator"></span>
+               </label>
+           </td>
+
+           <td><%= user.first_name %> <%= user.last_name%></td>
+           <td><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
+           <td><%= user.email %></td>
+           <td>No</td>
+       </tr>
+   </tbody>
+   <% end %>
+
+   <tfoot>
+       <tr>
+
+           <th></th>
+           <th colspan="4">
+               <button class="btn btn-default">Approve</button>
+               <button class="btn btn-default">Approve All</button>
+           </th>
+       </tr>
+   </tfoot>
+</table>
+
+<% end %>
+
+
+<!-- <div class="org-map" id="map">
   <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@event.location)%>" allowfullscreen></iframe>
-</div>
+</div> -->

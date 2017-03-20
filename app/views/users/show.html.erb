@@ -67,6 +67,7 @@ padding-top: 0px;
 
 
 
+
 <div class="user-profile-container">
 
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -97,8 +98,14 @@ padding-top: 0px;
             <div class="panel-body">
               <div class="row">
 
-
+                <% if current_user.picture_file_name %>
                 <div class="profile-pic"><%= image_tag current_user.picture %></div>
+                <% else %>
+
+                <div class="profile-pic">
+                  <img src="http://www.wannia.com/wp-content/themes/pintores/images/default_picture.gif">
+                </div>
+                <% end %>
 
                 <!-- <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" class="img-circle img-responsive"> </div> -->
 
