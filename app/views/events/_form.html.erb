@@ -24,6 +24,8 @@
 <%= f.label :location %>:
 <%= f.text_field :location %><br />
 </div>
+
+
   <div class="field">
     <%= f.label :date %>
     <%= f.date_select :date,
@@ -46,11 +48,6 @@
   <div class="field">
     <%= f.label :capacity %>
     <%= f.select :capacity, options_for_select(1..500) %>
-
-
-
-
-
   </div>
 
 

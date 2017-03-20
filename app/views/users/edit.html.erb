@@ -7,12 +7,10 @@
   position: absolute;
   margin-top: -21px
 }
-
 .panel-info {
   position: absolute;
   z-index: 3;
 }
-
 .vibe-img-profile-editpage {
   position: absolute;
   width: 200px;
@@ -21,31 +19,24 @@
   z-index: 2;
   height: 650px;
 }
-
 .panel-info>.panel-heading {
   background-color: #0d2c40;
 }
-
 .panel-title {
   font-weight: bold;
 }
-
 .panel-info {
   border: none;
 }
-
 .panel-info>.panel-heading {
 }
-
 .panel-body {
 }
-
 .panel-heading {
   background: #0d2c40;
   color: white;
   border: none;
 }
-
 </style>
 
 
@@ -104,7 +95,7 @@
                 </tr>
                 <tr>
                   <td>Region:</td>
-                  <td>    <%= select("user", "region", User::REGIONS) %></td>
+                  <td> <%= select("user", "region", User::REGIONS) %></td>
                 </tr>
                 <tr>
                   <td>Date of Birth:</td>
@@ -112,6 +103,29 @@
                         :start_year => 1920,
                         order: [:month, :day, :year],
                         prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %></td>
+                </tr>
+                <tr>
+                  <td> Hour Goals: </td>
+                  <td> <%= f.number_field(:goals) %></td>
+                </tr>
+
+                <tr>
+                  <td> Skills: </td>
+                  <tr>
+                  <td> <%= select("user", "skill1", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill2", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill3", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill4", User::SKILLS) %></td><BR>
+                  </tr>
+                  <tr>
+                  <td> <%= select("user", "skill5", User::SKILLS) %></td><BR>
+                </tr>
                 </tr>
               </tbody>
             </table>

@@ -6,4 +6,4 @@ class ApplicationMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: pledge_msg)
   end
-end
+end 

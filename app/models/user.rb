@@ -10,8 +10,17 @@ class User < ApplicationRecord
   # validates :email, uniqueness: true
 
 
+  SKILLS = ["","Administrative", "Analytical", "Artistic/Creative", "Budgeting",
+  "Communicaton", "Computer", "Conflict Resolution", "Creating Ideas",
+  "Creating Procedures", "Creating New Solutions", "Customer Service",
+  "Decision Making", "Fundraising", "Handling Complaints", "Innovative",
+  "Leadership", "Learning", "Logical Thinking", "Maintaining High Levels of Activity",
+  "Negotiating", "Networking", "Organizational", "Planning", "Problem Solving",
+  "Reporting", "Team Work", "Technical", "Time Management", "Training"]
+
 
   REGIONS = ["", "Annex", "Beaches", "Bloor West", "Danforth", "Downtown", "Etobicoke", "Midtown", "North York", "Scarborough"]
+
 
   def age
     ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
@@ -30,22 +39,12 @@ class User < ApplicationRecord
 
 end
 
-def a_method_used_for_validation_purposes
-    errors.add(:name, "You need a name!")
+def all_skills
+  skill = Skill.select(params)
+  current_user.skills << skills
 end
 
 
-
-
-# user = User.new
-# user.valid? # => false
-# user.errors[:name]
-#  ["can't be blank", "is too short (minimum is 3 characters)"]
-
-# user.errors.clear
-# user.errors.empty? # => true
-#
-# user.save # => false
-#
-# user.errors[:name]
-# => ["can't be blank", "is too short (minimum is 3 characters)"]
+def a_method_used_for_validation_purposes
+    errors.add(:name, "You need a name!")
+end

@@ -46,6 +46,23 @@ padding-top: 0px;
   color: white;
 }
 
+#goals {
+    width: 50%;
+    background-color: navy;
+    position: absolute;
+    margin-top: 34%;
+}
+
+#myProgress {
+    height: 26px;
+    background-color: orange;
+    position: relative;
+    left: 0;
+    margin-top: -20px;
+    top: 0;
+}
+
+
 </style>
 
 
@@ -116,6 +133,19 @@ padding-top: 0px;
                         <td><%= current_user.email %></td>
                       </tr>
                       <tr>
+                        <td>Goals:</td>
+                        <td><%= current_user.goals %></td>
+                      </tr>
+
+                      <tr>
+                        <td>skills:</td>
+                        <td><%= current_user.skill1 %></td>
+                        <td><%= current_user.skill2 %></td>
+                        <td><%= current_user.skill3 %></td>
+                        <td><%= current_user.skill4 %></td>
+                        <td><%= current_user.skill5 %></td>
+                        <tr>
+
                         <td>Join Date:</td>
                           <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
                       </tr>
@@ -136,5 +166,13 @@ padding-top: 0px;
       </div>
     </div>
   </div>
-<img src="/assets/peoplevibe.jpg" class="img-profile-showpage">
-<img src="/assets/vibe3.png" class="vibe-img-profile-showpage">
+
+
+<tr>
+  <td>Hours Completed:</td>
+  <td><%= current_user.hours %></td>
+  <div id="goals">
+    <%= percentage = (current_user.hours.to_f / current_user.goals) * 100 %>
+    <div style = "width:<%= percentage %>%" id="myProgress"></div>
+  </div>
+</tr>
