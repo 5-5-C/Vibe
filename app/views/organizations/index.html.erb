@@ -12,15 +12,20 @@
 
 <section class="organizations">
   <% @organizations.each do |organization| %>
-  <% @organizations.order (:name) %>
+
 
     <h1><%= link_to organization.name, organization_path(organization) %><h1>
 
     <h5><%= organization.description %></h5>
 
+    <% if organization.image_url %>
 
-<div class ="organization-image"><%= image_tag organization.image_url %></div><br />
+    <%= image_tag organization.image_url %>
 
+    <% else %>
+
+
+    <% end %>
 
 </div>
   <br/>
