@@ -1,60 +1,60 @@
 <style>
-.event-list {
-  width: 300px;
-  height: 398px;
-  margin-bottom: -37%;
-  margin-top: 2%;
-  margin-left: 19%;
-}
+  .event-list {
+  /*  width: 300px;
+    height: 398px;*/
+  /*  margin-bottom: -37%;
+    margin-top: 2%;
+    margin-left: 19%;*/
+  }
 
-.title {
-  font-size: 14px;
-}
+  .title {
+    font-size: 14px;
+  }
 
-.event-list > li > .info > .title,
-.event-list > li > .info > .desc {
-  padding: 0px 10px;
-  font-size: 14px;
-}
+  .event-list > li > .info > .title,
+  .event-list > li > .info > .desc {
+    padding: 0px 10px;
+    font-size: 14px;
+  }
 
-.pop-org {
-  float: right;
-  background-color: white;
-  width: 400px;
-  height: 400px;
-}
+  .pop-org {
+    float: right;
+    background-color: white;
+    width: 400px;
+    height: 400px;
+  }
 
-.col-sm-offset-2 {
+  .col-sm-offset-2 {
     margin-left: 12.666667%;
-}
+  }
 
 </style>
 <body>
 
-<section>
+  <section>
 
-<main>
-<h2 class=intro-header>
-  <p class="intro-writeup">Connecting You with Great Organizations</p>
-<a href="#about-us">
-  <button class="bounceInLeft">Learn More</button></a>
-  <div class="logo-circle">
-    <p class="logo-letter">V</p>
-  </div>
-</h2>
+    <main>
+      <h2 class=intro-header>
+        <p class="intro-writeup">Connecting You with Great Organizations</p>
+        <a href="#about-us">
+          <button class="bounceInLeft">Learn More</button></a>
+          <div class="logo-circle">
+            <p class="logo-letter">V</p>
+          </div>
+        </h2>
 
-<h3 class="i">
-  <div class="i-circle">
-    <p class="i-letter">I</p>
-  </div>
-</h3>
+        <h3 class="i">
+          <div class="i-circle">
+            <p class="i-letter">I</p>
+          </div>
+        </h3>
 
-<h3 class="b">
-  <div class="b-circle">
-    <p class="b-letter">B</p>
-    <p class="vibe-writeup">At VIBE we understand that commitment of time and energy is best served when one believes in what they are doing.  We'll help you find organizations that you can rally behind.</p>
-    <button type="find-organization-button"><%= link_to "Find Organizations", organizations_url %></button>
-  </div>
+        <h3 class="b">
+          <div class="b-circle">
+            <p class="b-letter">B</p>
+   <!--  <p class="vibe-writeup">At VIBE we understand that commitment of time and energy is best served when one believes in what they are doing.  We'll help you find organizations that you can rally behind.</p>
+   <button type="find-organization-button"><%= link_to "Find Organizations", organizations_url %></button> -->
+ </div>
 </h3>
 
 <h3 class="e">
@@ -62,94 +62,141 @@
     <p class="e-letter">E</p>
   </div>
 </h3>
-  <img src="/assets/peoplevibe.jpg">
+<img src="/assets/peoplevibe.jpg">
 </main>
 
 </section>
-
+<!--
 <div class="about-us" id="about-us">
   <p class="vertical-text">Who are we?</p>
   <p class="about-us-writeup">Whether you are looking to add experience to your resume, attain community service hours, or to simply contribute to your community, VIBE has you covered.  We'll help you connect with organizations that are taylored for you!</p>
-</div>
+</div> -->
 
-<div class="upcoming-events">
-  <p class="event-bar">New Events</p>
 
-   <% @events.each do |event| %>
-   <ul>
 
-   <div class="container">
-  		<div class="row">
-  			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-  				<ul class="event-list">
-  					<li>
-  						<time datetime="2014-07-20">
-  							<span class="day"><%= event.date.strftime("%d") %></span>
-                <span class="month"><%= event.date.strftime("%^b") %></span>
-  							<span class="time">ALL DAY</span>
-  						</time>
-  						<div class="info">
-  							<h2 class="title"><%= event.name %> |
 
-                  <% if current_user %>
-                 <%= link_to "Sign up", event_signup_url(event) %></h2>
-                 <% else %>
-                   Please Login to Apply for Events</h2>
-                 <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3" style="background-color:#0d2c40; color:white;"><!-- <p style="transform: rotate(270deg); font-weight: bold;
+    font-size: 25px;"> --><h2>Who are we?</h2>
+      <p class="">Whether you are looking to add experience to your resume, attain community service hours, or to simply contribute to your community, VIBE has you covered.  We'll help you connect with organizations that are taylored for you!</p></div>
+      <div class="col-sm-3">
+        <p style="background-color: #f15b31;
+    text-align: center;
+    font-weight: bold;
+    color: white; padding:7px;">New Events</p>
 
-                 </br>
-  							<p class="desc"><%= event.description %></p>
-                <p class="desc"><%= event.location %></p>
+        <% @events.each do |event| %>
+        <div class="upcoming-events">
+          <ul class="event-list">
+           <li>
+            <time datetime="2014-07-20">
+             <span class="day"><%= event.date.strftime("%d") %></span>
+             <span class="month"><%= event.date.strftime("%^b") %></span>
+             <span class="time">ALL DAY</span>
+           </time>
+           <div class="info">
+             <h2 class="title"><%= event.name %> |
 
-  						</div>
-  					</li>
-  				</ul>
-  			</div>
-  		</div>
-  	</div>
-  </ul>
+              <% if current_user %>
+              <%= link_to "Sign up", event_signup_url(event) %></h2>
+              <% else %>
+              Please Login to Apply for Events</h2>
+              <% end %>
+
+            </br>
+            <p class="desc"><%= event.description %></p>
+            <p class="desc"><%= event.location %></p>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-3" style="background-color:#31c6dc; padding:5px"><p style="color:white;">At VIBE we understand that commitment of time and energy is best served when one believes in what they are doing.  We'll help you find organizations that you can rally behind.</p>
+    <button type="find-organization-button"><%= link_to "Find Organizations", organizations_url %></button></div>
+    <div class="col-sm-3"><p style="background-color: #f15b31;
+    text-align: center;
+    font-weight: bold;
+    color: white; padding:7px;">Events Happening Soon</p>
+
+ <% @events.each do |event| %>
+  <%@events = Event.order('created_at DESC').first(3) %>
+       <ul class="event-list">
+         <li>
+           <time datetime="2014-07-20">
+             <span class="day"><%= event.date.strftime("%d") %></span>
+             <span class="month"><%= event.date.strftime("%^b") %></span>
+             <span class="time">ALL DAY</span>
+           </time>
+           <div class="info">
+             <h2 class="title"><%= event.name %> |
+
+               <% if current_user %>
+               <%= link_to "Sign up", event_signup_url(event) %></h2>
+               <% else %>
+               Please Login to Apply for Events</h2>
+               <% end %>
+
+             </br>
+             <p class="desc"><%= event.description %></p>
+             <p class="desc"><%= event.location %></p>
+
+           </div>
+         </li>
+       </ul>
+        <% end %>
+  </div>
+  </div>
+
+
 
   <% end %>
 
 </div>
 
-<div class="volunteer-opportunities">
-  <p class="volunteer-oppoertunities-bar">Events Happening Soon</p>
+<!-- <div class="volunteer-opportunities">
+  <p style="background-color: #f15b31;
+    text-align: center;
+    font-weight: bold;
+    color: white; padding:7px;">Events Happening Soon</p>
 
   <% @events.each do |event| %>
   <%@events = Event.order('created_at DESC').first(3) %>
 
   <div class="joel">
-     <div class="row">
-       <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-         <ul class="event-list">
-           <li>
-             <time datetime="2014-07-20">
-               <span class="day"><%= event.date.strftime("%d") %></span>
-               <span class="month"><%= event.date.strftime("%^b") %></span>
-               <span class="time">ALL DAY</span>
-             </time>
-             <div class="info">
-               <h2 class="title"><%= event.name %> |
+   <div class="row">
+     <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+<% @events.each do |event| %>
+  <%@events = Event.order('created_at DESC').first(3) %>
+       <ul class="event-list">
+         <li>
+           <time datetime="2014-07-20">
+             <span class="day"><%= event.date.strftime("%d") %></span>
+             <span class="month"><%= event.date.strftime("%^b") %></span>
+             <span class="time">ALL DAY</span>
+           </time>
+           <div class="info">
+             <h2 class="title"><%= event.name %> |
 
-                 <% if current_user %>
-                <%= link_to "Sign up", event_signup_url(event) %></h2>
-                <% else %>
-                  Please Login to Apply for Events</h2>
-                <% end %>
+               <% if current_user %>
+               <%= link_to "Sign up", event_signup_url(event) %></h2>
+               <% else %>
+               Please Login to Apply for Events</h2>
+               <% end %>
 
-                </br>
-               <p class="desc"><%= event.description %></p>
-               <p class="desc"><%= event.location %></p>
+             </br>
+             <p class="desc"><%= event.description %></p>
+             <p class="desc"><%= event.location %></p>
 
-             </div>
-           </li>
-         </ul>
-       </div>
+           </div>
+         </li>
+       </ul>
+        <% end %>
      </div>
    </div>
-<% end %>
-</div>
+ </div>
+ <% end %>
+</div> -->
 
 <% console %>
 
