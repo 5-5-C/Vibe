@@ -10,7 +10,8 @@ class User < ApplicationRecord
   # validates :email, uniqueness: true
 
 
-  REGIONS = ["City of Toronto", "Peel", "Durham", "Halton", "York"]
+
+  REGIONS = ["", "Annex", "Beaches", "Bloor West", "Danforth", "Downtown", "Etobicoke", "Midtown", "North York", "Scarborough"]
 
   def age
     ((Time.now - self.date_of_birth.to_time)/ 1.year ).round

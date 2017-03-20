@@ -43,7 +43,14 @@ color: #f15b31;
   <p class="org-title">Organizations</p>
 </div>
 
+<%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
+<%= submit_tag "Search", :name => nil %>
+
+<% end %>
+
 <img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
+
 
 
 
@@ -58,10 +65,16 @@ color: #f15b31;
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %><span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead"><%= organization.description %></p>
+          <p class="lead"><%= organization.description %></p
+
         </div>
         <div class="col-md-5">
+          <% if organization.image_url %>
           <%= image_tag organization.image_url, :class => "featurette-image img-responsive center-block" %>
+          <% else %>
+
+
+          <% end %>
         </div>
       </div>
       <% end %>
