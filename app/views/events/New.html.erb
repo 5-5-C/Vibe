@@ -1,3 +1,9 @@
- <h1>Create your Event</h1>
+<% if current_user && current_user == @organization.user %>
 
 <%= render 'form' %>
+
+<% else %>
+
+<p>Permission Denied</p>
+
+<% end %>
