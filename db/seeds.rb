@@ -52,7 +52,7 @@ Organization.create(
 name: "The Salvation Army",
 location: "160 Jarvis St, Toronto, ON M5B 2E1",
 description: "The Salvation Army is an international Christian church. Its message is based on the Bible; its ministry is motivated by love for God and the needs of humanity.",
-image_url: "http://www.salvationarmy.ca/wp-content/themes/sa_2014/library/images/logo_nav1.png",
+image_url: "https://s3-media1.fl.yelpcdn.com/bphoto/9stBMaZRZElJSOLbLO7NFQ/l.jpg",
 )
 
 Organization.create(
