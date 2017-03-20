@@ -23,7 +23,9 @@
             <h1><%= @organization.name%></h1>
               <h1><%= @organization.description %></h1>
             <p><%= @organization.description %></p>
-            <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Create an Event", new_organization_event_path(@organization) %> </a>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Edit Organization", edit_organization_path(@organization) %> </a>
+
         </div>
         <!-- /.col-md-4 -->
     </div>

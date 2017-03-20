@@ -43,7 +43,7 @@ color: #f15b31;
   <p class="org-title">Organizations</p>
 </div>
 
-<%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
+  <%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
 <%= submit_tag "Search", :name => nil %>
 
