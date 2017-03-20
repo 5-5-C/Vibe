@@ -56,7 +56,8 @@ location: "25 Dockside Dr, Toronto, ON M5A 0B5",
 date: "2017-06-04",
 start_time: "2000-01-01 09:00:00",
 end_time: "2000-01-01 17:00:00",
-capacity: 20,
+capacity: 400,
+summary:"Volunteer to setup, teardown, auction assistance, catering assistance, pre-event support, and more.",
 )
 
 Event.create(
@@ -68,6 +69,7 @@ date: "2017-07-01",
 start_time: "2000-01-01 13:00:00",
 end_time: "2000-01-01 18:00:00",
 capacity: 30,
+summary:"Help make hundreds of delicious and lunches for children attending city camps.",
 )
 
 Event.create(
@@ -79,6 +81,7 @@ date: "2017-04-01",
 start_time: "2000-01-01 09:00:00",
 end_time: "2000-01-01 20:00:00",
 capacity: 100,
+summary:"Support Canadians living with cancer by selling daffodil pins.",
 )
 
 Event.create(
@@ -90,6 +93,7 @@ date: "2017-08-01",
 start_time: "2000-01-01 09:00:00",
 end_time: "2000-01-01 18:00:00",
 capacity: 5,
+summary:"Gain front line exposure in a mental health or addiction setting.",
 )
 
 Event.create(
@@ -101,6 +105,7 @@ date: "2017-08-01",
 start_time: "2000-01-01 09:00:00",
 end_time: "2000-01-01 18:00:00",
 capacity: 5,
+summary:"Assist staff in obtaining information necessary for research projects.",
 )
 
 Event.create(
@@ -112,6 +117,7 @@ date: "2017-05-17",
 start_time: "2000-01-01 09:00:00",
 end_time: "2000-01-01 18:00:00",
 capacity: 6,
+summary:"Volunteers help youth mentors in Toronto",
 )
 
 Event.create(
@@ -123,6 +129,7 @@ date: "2017-03-30",
 start_time: "2000-01-01 08:00:00",
 end_time: "2000-01-01 17:00:00",
 capacity: 6,
+summary:"Help needed at Thrift Store.",
 )
 
 Event.create(
@@ -134,6 +141,7 @@ date: "2017-03-30",
 start_time: "2000-01-01 08:00:00",
 end_time: "2000-01-01 17:00:00",
 capacity: 8,
+summary:"Help needed at Thrift Store.",
 )
 
 Event.create(
@@ -145,6 +153,7 @@ date: "2017-03-28",
 start_time: "2000-01-01 08:00:00",
 end_time: "2000-01-01 17:00:00",
 capacity: 4,
+summary:"Support our Food Coordinator and the volunteer groups who come to our House to prepare sandwiches",
 )
 
 Event.create(
@@ -156,4 +165,5 @@ date: "2017-03-29",
 start_time: "2000-01-01 08:00:00",
 end_time: "2000-01-01 20:00:00",
 capacity: 10,
+summary:"You will gain knowledge and see firsthand the role that RMHC Toronto plays in the continuum of family-centered care.",
 )
