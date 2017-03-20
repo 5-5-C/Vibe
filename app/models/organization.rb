@@ -11,6 +11,7 @@ class Organization < ApplicationRecord
     t.string :name
     t.text :description
     t.text :location
+  end
 
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
