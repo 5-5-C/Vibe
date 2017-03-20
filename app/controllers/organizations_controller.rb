@@ -16,7 +16,7 @@ end
   def show
     @organization = Organization.find(params[:id])
     @events = @organization.events
-    
+
     @users = User.all
     @location = @organization.location
   end
