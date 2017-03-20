@@ -42,6 +42,8 @@ gem 'fog'
 # figaro gem for api's
 gem "figaro"
 
+# gem "simple_calendar", "~> 2.0"
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

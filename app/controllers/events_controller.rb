@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organization = @organization
+    @event.hours = ((@event.end_time - @event.start_time)/3600).to_i
       if @event.save
         redirect_to organization_path(@organization)
         @event = Event.create

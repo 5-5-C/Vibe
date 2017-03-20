@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.hours = 0
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url
@@ -27,7 +28,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
-
     if @user.save
       redirect_to user_path(current_user)
     else
