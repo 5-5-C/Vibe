@@ -11,7 +11,7 @@
   <h3 class="org-show-buttons"><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
 
 <% end %> -->
-<div class="container">
+<div class="container-fluid">
 
     <!-- Heading Row -->
     <div class="row">
@@ -21,7 +21,6 @@
         <!-- /.col-md-8 -->
         <div class="col-md-4">
             <h1><%= @organization.name%></h1>
-              <h1><%= @organization.description %></h1>
             <p><%= @organization.description %></p>
             <a class="btn btn-primary btn-lg" href= <%= link_to "Create an Event", new_organization_event_path(@organization) %> </a>
             <a class="btn btn-primary btn-lg" href= <%= link_to "Edit Organization", edit_organization_path(@organization) %> </a>

@@ -1,4 +1,4 @@
-<style>
+  <style>
 i {
 font-size: 13em;
 text-align: center;
@@ -9,6 +9,15 @@ color: #f15b31;
   text-align: center;
 }
 </style>
+
+<header class="header-image">
+    <div class="headline">
+        <div class="container">
+            <h1>Organizations</h1>
+            <h2>For You!</h2>
+        </div>
+    </div>
+</header>
 
 
 <div class="container marketing">
@@ -39,9 +48,7 @@ color: #f15b31;
 
 
 
-<div class="org">
-  <p class="org-title">Organizations</p>
-</div>
+
 
   <%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
@@ -49,7 +56,7 @@ color: #f15b31;
 
 <% end %>
 
-<img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
+
 
 
 
@@ -61,12 +68,25 @@ color: #f15b31;
       <hr class="featurette-divider">
 
       <% @organizations.each do |organization| %>
+      <hr class="featurette-divider">
 
-      <div class="row featurette">
+      <!-- First Featurette -->
+      <div class="featurette" id="about">
+        <% if organization.image_url %>
+        <%= image_tag organization.image_url, :class => "featurette-image img-circle img-responsive pull-right", :style => "width:500px;height:500px;" %>
+        <% else %>
+
+
+        <% end %>
+          <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %>
+              <span class="text-muted">Write something sweet?</span>
+          </h2>
+          <p class="lead"><%= organization.description %></p>
+      </div>
+      <!-- <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %><span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead"><%= organization.description %></p
-
+          <p class="lead"><%= organization.description %></p>
         </div>
         <div class="col-md-5">
           <% if organization.image_url %>
@@ -75,6 +95,6 @@ color: #f15b31;
 
 
           <% end %>
-        </div>
-      </div>
+        </div> -->
+
       <% end %>
