@@ -1,117 +1,100 @@
-<div class="org">
-  <p class="org-title">Organizations</p>
-</div>
+  <style>
+i {
+font-size: 13em;
+text-align: center;
+color: #f15b31;
+}
 
-<%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
+.icon {
+  text-align: center;
+}
+</style>
+
+<header class="header-image">
+    <div class="headline">
+        <div class="container">
+            <h1>Organizations</h1>
+            <h2>For You!</h2>
+        </div>
+    </div>
+</header>
+
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+      <div class="icon col-lg-4">
+      <!-- <img class="img-circle" src="http://www.vertiba.com/wp-content/uploads/click-icon.png" alt="Generic placeholder image" width="140" height="140"> -->
+        <i class="fa fa-hand-o-up"></i>
+      <h2>Find an Organization</h2>
+      <p>Browse through our organizations to find one that suites you.</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="icon col-lg-4">
+      <!-- <img class="img-circle" src="https://www.cfmco.org/wp-content/uploads/2015/07/icon-apply.png" alt="Generic placeholder image" width="140" height="140"> -->
+      <i class="fa fa-pencil-square"></i>
+      <h2>Apply for Organization</h2>
+      <p>Apply for your Organization</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="icon col-lg-4">
+      <!-- <img class="img-circle" src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/ico/Other/Tasks.ico" alt="Generic placeholder image" width="140" height="140"> -->
+            <i class="fa fa-check-circle"></i>
+      <h2>Apply for Event</h2>
+      <p>Apply for Organization Event</p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+
+
+
+
+
+
+  <%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
 <%= submit_tag "Search", :name => nil %>
 
 <% end %>
 
-<img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
-
-<section class="organizations">
-  <% @organizations.each do |organization| %>
 
 
-    <h1><%= link_to organization.name, organization_path(organization) %><h1>
-
-    <h5><%= organization.description %></h5>
-
-    <% if organization.image_url %>
-
-    <%= image_tag organization.image_url %>
-
-    <% else %>
 
 
-    <% end %>
 
-</div>
-  <br/>
-    <% end %>
 
-    <!-- <div class="container">
-    <div class="row">
-		<div class="well">
-        <h1 class="text-center">Vote for your favorite</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item active">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                        <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> List group heading </h4>
-                    <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum.
-                        Vel et nonumy gubergren, ad has tota facilis probatus. Ea legere legimus tibique cum, sale tantas vim ea, eu vivendo expetendis vim. Voluptua vituperatoribus et mel, ius no elitr deserunt mediocrem. Mea facilisi torquatos ad.
-                    </p>
-                </div>
-                <div class="col-md-3 text-center">
-                    <h2> 14240 <small> votes </small></h2>
-                    <button type="button" class="btn btn-default btn-lg btn-block"> Vote Now! </button>
-                    <div class="stars">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p> Average 4.5 <small> / </small> 5 </p>
-                </div>
-          </a>
-          <a href="#" class="list-group-item">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                        <img class="media-object img-rounded img-responsive" src="http://placehold.it/350x250" alt="placehold.it/350x250" >
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> List group heading </h4>
-                    <p class="list-group-item-text"> Eu eum corpora torquatos, ne postea constituto mea, quo tale lorem facer no. Ut sed odio appetere partiendo, quo meliore salutandi ex. Vix an sanctus vivendo, sed vocibus accumsan petentium ea.
-                        Sed integre saperet at, no nec debet erant, quo dico incorrupte comprehensam ut. Et minimum consulatu ius, an dolores iracundia est, oportere vituperata interpretaris sea an. Sed id error quando indoctum, mel suas saperet at.
-                    </p>
-                </div>
-                <div class="col-md-3 text-center">
-                    <h2> 12424 <small> votes </small></h2>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Vote Now!</button>
-                    <div class="stars">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p> Average 3.9 <small> / </small> 5 </p>
-                </div>
-          </a>
-          <a href="#" class="list-group-item">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                        <img class="media-object img-rounded img-responsive" src="http://placehold.it/350x250" alt="placehold.it/350x250">
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> List group heading </h4>
-                    <p class="list-group-item-text"> Ut mea viris eripuit theophrastus, cu ponderum accusata consequuntur cum. Suas quaestio cotidieque pro ea. Nam nihil persecuti philosophia id, nam quot populo ea.
-                        Falli urbanitas ei pri, eu est enim volumus, mei no volutpat periculis. Est errem iudicabit cu. At usu vocibus officiis, ad ius eros tibique appellantur.
-                    </p>
-                </div>
-                <div class="col-md-3 text-center">
-                    <h2> 13540 <small> votes </small></h2>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Vote Now!</button>
-                    <div class="stars">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p> Average 4.1 <small> / </small> 5 </p>
-                </div>
-          </a>
+
+
+
+      <hr class="featurette-divider">
+
+      <% @organizations.each do |organization| %>
+      <hr class="featurette-divider">
+
+      <!-- First Featurette -->
+      <div class="featurette" id="about">
+        <% if organization.image_url %>
+        <%= image_tag organization.image_url, :class => "featurette-image img-circle img-responsive pull-right", :style => "width:500px;height:500px;" %>
+        <% else %>
+
+
+        <% end %>
+          <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %>
+              <span class="text-muted">Write something sweet?</span>
+          </h2>
+          <p class="lead"><%= organization.description %></p>
+      </div>
+      <!-- <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %><span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead"><%= organization.description %></p>
         </div>
-        </div>
-	</div>
-</div> -->
+        <div class="col-md-5">
+          <% if organization.image_url %>
+          <%= image_tag organization.image_url, :class => "featurette-image img-responsive center-block" %>
+          <% else %>
+
+
+          <% end %>
+        </div> -->
+
+      <% end %>
