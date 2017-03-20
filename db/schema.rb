@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
+ # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310085614) do
+ActiveRecord::Schema.define(version: 20170320205933) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170310085614) do
     t.time     "start_time"
     t.time     "end_time"
     t.integer  "capacity"
+    t.integer  "hours"
+    t.string   "summary"
   end
 
   create_table "events_users", force: :cascade do |t|
@@ -63,6 +66,13 @@ ActiveRecord::Schema.define(version: 20170310085614) do
     t.datetime "picture_updated_at"
     t.boolean  "org_admin"
     t.integer  "hours"
+    t.string   "skills"
+    t.integer  "goals"
+    t.string   "skill1"
+    t.string   "skill2"
+    t.string   "skill3"
+    t.string   "skill4"
+    t.string   "skill5"
   end
 
 end

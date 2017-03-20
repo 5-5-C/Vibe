@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organization = @organization
+    @event.hours = ((@event.end_time - @event.start_time)/3600).to_i
       if @event.save
         redirect_to organization_path(@organization)
         @event = Event.create
@@ -55,8 +56,7 @@ end
   private
 
   def event_params
-
-    params.require(:event).permit(:user_id, :organization_id, :capacity, :date, :name, :description, :location, :start_time, :end_time)
+    params.require(:event).permit(:user_id, :organization_id, :capacity, :date, :name, :description, :location, :start_time, :end_time, :hours)
   end
 
   def load_organization
