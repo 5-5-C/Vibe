@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   def index
     @events = @organization.events
     @events = @events.order(:date)
+    @events = @events.order(:start_time)
   end
 
   def show

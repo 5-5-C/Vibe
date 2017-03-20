@@ -103,7 +103,103 @@
                     <p> Average 4.1 <small> / </small> 5 </p>
                 </div>
           </a>
+  <style>
+i {
+font-size: 13em;
+text-align: center;
+color: #f15b31;
+}
+
+.icon {
+  text-align: center;
+}
+</style>
+
+<header class="header-image">
+    <div class="headline">
+        <div class="container">
+            <h1>Organizations</h1>
+            <h2>For You!</h2>
         </div>
+    </div>
+</header>
+
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+      <div class="icon col-lg-4">
+      <!-- <img class="img-circle" src="http://www.vertiba.com/wp-content/uploads/click-icon.png" alt="Generic placeholder image" width="140" height="140"> -->
+        <i class="fa fa-hand-o-up"></i>
+      <h2>Find an Organization</h2>
+      <p>Browse through our organizations to find one that suites you.</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="icon col-lg-4">
+      <!-- <img class="img-circle" src="https://www.cfmco.org/wp-content/uploads/2015/07/icon-apply.png" alt="Generic placeholder image" width="140" height="140"> -->
+      <i class="fa fa-pencil-square"></i>
+      <h2>Apply for Organization</h2>
+      <p>Apply for your Organization</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="icon col-lg-4">
+      <!-- <img class="img-circle" src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/ico/Other/Tasks.ico" alt="Generic placeholder image" width="140" height="140"> -->
+            <i class="fa fa-check-circle"></i>
+      <h2>Apply for Event</h2>
+      <p>Apply for Organization Event</p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+
+
+
+
+
+
+  <%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
+<%= submit_tag "Search", :name => nil %>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+      <hr class="featurette-divider">
+
+      <% @organizations.each do |organization| %>
+      <hr class="featurette-divider">
+
+      <!-- First Featurette -->
+      <div class="featurette" id="about">
+        <% if organization.image_url %>
+        <%= image_tag organization.image_url, :class => "featurette-image img-circle img-responsive pull-right", :style => "width:500px;height:500px;" %>
+        <% else %>
+
+
+        <% end %>
+          <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %>
+              <span class="text-muted">Write something sweet?</span>
+          </h2>
+          <p class="lead"><%= organization.description %></p>
+      </div>
+      <!-- <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading"><%= link_to organization.name, organization_path(organization) %><span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead"><%= organization.description %></p>
         </div>
-	</div>
-</div> -->
+        <div class="col-md-5">
+          <% if organization.image_url %>
+          <%= image_tag organization.image_url, :class => "featurette-image img-responsive center-block" %>
+          <% else %>
+
+
+          <% end %>
+        </div> -->
+
+      <% end %>

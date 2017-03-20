@@ -4,12 +4,19 @@ class OrganizationsController < ApplicationController
   def index
     @organizations = Organization.all
 
+    if params[:search]
+      @organizations = Organization.search(params[:search]).order("created_at DESC")
+    else
+      @organizations = Organization.all.order("created_at DESC")
+
     # @organization = Organization.find(params[:id])
   end
+end
 
   def show
     @organization = Organization.find(params[:id])
     @events = @organization.events
+    
     @users = User.all
     @location = @organization.location
   end
@@ -21,6 +28,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     @organization.user = current_user
+    @organization.image_url = "http://glendalecitychurch.org/wp-content/uploads/2015/01/temp-citychurch-outside.jpg"
     if @organization.save
       redirect_to organizations_path
     else

@@ -49,8 +49,39 @@
 </style>
 
 <img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
+
+
+
+<!-- <img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
+>>>>>>> 27da6a6e23df4611464ddbca24e4658ef31def4f
 <img src="/assets/vibe1.png" class="vibe-img-profile-showpage">
 
+
+  <h1 class="org-name"><%= @organization.name %></h1>
+
+    <% if current_user && current_user == @organization.user %>
+
+  <h3 class="org-show-buttons"><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
+
+<% end %> -->
+<div class="container-fluid">
+
+    <!-- Heading Row -->
+    <div class="row">
+        <div class="col-md-8">
+          <%= image_tag @organization.image_url, :class => "img-responsive img-rounded" %>
+        </div>
+        <!-- /.col-md-8 -->
+        <div class="col-md-4">
+            <h1><%= @organization.name%></h1>
+            <p><%= @organization.description %></p>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Create an Event", new_organization_event_path(@organization) %> </a>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Edit Organization", edit_organization_path(@organization) %> </a>
+
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+  </div>
 
   <h1 class="org-name"><%= @organization.name %></h1>
 
@@ -59,14 +90,15 @@
   <h3 class="org-show-buttons"><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
 
 <% end %>
-
 <section class="org-section">
 
 
 <h2>Events</h2>
 
 
-<% @events.each do |event| %>
+    <% @events.each do |event| %>
+
+    <%= link_to event.name, organization_event_path(event) %>
 
 
  <div class="container">
@@ -83,11 +115,12 @@
 							<span class="time">ALL DAY</span>
 						</time>
 						<div class="info">
-							<h2 class="title"><%= event.name %> |
+							<h2 class="title"><%= link_to event.name, organization_event_path(@organization, event) %>
+ |
 
-                <% unless event.users.include?(current_user) %>
-      <%= link_to "sign up", event_signup_url(event) %></h2>
-               <% else %>
+              <% unless event.users.include?(current_user) %>
+              <%= link_to "Sign Up", event_signup_url(event) %></h2>
+              <% else %>
                  Signed Up!</h2>
                <% end %>
 

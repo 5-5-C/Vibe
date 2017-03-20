@@ -10,8 +10,6 @@ class User < ApplicationRecord
   # validates :email, uniqueness: true
 
 
-  REGIONS = ["","City of Toronto", "Peel", "Durham", "Halton", "York"]
-
   SKILLS = ["","Administrative", "Analytical", "Artistic/Creative", "Budgeting",
   "Communicaton", "Computer", "Conflict Resolution", "Creating Ideas",
   "Creating Procedures", "Creating New Solutions", "Customer Service",
@@ -19,6 +17,10 @@ class User < ApplicationRecord
   "Leadership", "Learning", "Logical Thinking", "Maintaining High Levels of Activity",
   "Negotiating", "Networking", "Organizational", "Planning", "Problem Solving",
   "Reporting", "Team Work", "Technical", "Time Management", "Training"]
+
+
+  REGIONS = ["", "Annex", "Beaches", "Bloor West", "Danforth", "Downtown", "Etobicoke", "Midtown", "North York", "Scarborough"]
+
 
   def age
     ((Time.now - self.date_of_birth.to_time)/ 1.year ).round
