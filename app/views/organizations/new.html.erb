@@ -1,2 +1,9 @@
+<% if current_user && current_user.org_admin? %>
 
 <%= render "form" %>
+
+<% else %>
+
+<p>Permission Denied, Please Log In as an Organization</p>
+
+<% end %>

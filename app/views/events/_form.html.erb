@@ -1,3 +1,4 @@
+
 <%= form_for [@organization, @event] do |f| %>
 
 <% if @event.errors.any? %>
@@ -12,52 +13,60 @@
 </div> </br>
 <% end %>
 
-<div>
-<%= f.label :name %>:
-<%= f.text_field :name %><br />
-</div>
-<div>
-<%= f.label :description %>:
-<%= f.text_field :description %><br />
-</div>
-<div>
-<%= f.label :location %>:
-<%= f.text_field :location %><br />
-</div>
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date,
-          :start_year => 2017,
-          order: [:month, :day, :year],
-          prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %>
-  </div>
-
-  <div class="field">
-    <%= f.label :start_time %>
-    <%= f.time_field :start_time, {ampm: true} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :end_time %>
-    <%= f.time_field :end_time %>
-
-  </div>
-
-  <div class="field">
-    <%= f.label :capacity %>
-    <%= f.select :capacity, options_for_select(1..500) %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 well well-sm">
+            <legend><i class="glyphicon glyphicon-globe"></i></a> Create New Event</legend>
+            <%= f.text_field :name, class: "form-control", placeholder: "Event Name", type: "text" %>
+            <%= f.text_field :location, class: "form-control", placeholder: "Event Location", type: "text" %>
+            <%= f.text_area :description, class: "form-control", placeholder: "Description", type: "text", rows: "9", cols: "25" %></br>
 
 
 
+            <div class="row">
+                <div class="col-xs-4 col-md-4">
+
+                    <%= f.date_select :date,
+                          :start_year => 2017,
+                          order: [:month, :day, :year],
+                          prompt: [ day: 'Select day', month: 'Select month', year: 'Select year' ] %>
+
+                </div>
+
+<!--
+                <div class="col-xs-4 col-md-4">
+                    <select class="form-control">
+                        <option value="Month">Month</option>
+                    </select>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                    <select class="form-control">
+                        <option value="Year">Year</option>
+                    </select>
+                </div> -->
+            </div></br>
+            <%= f.label :capacity %>
+            <%= f.select :capacity, options_for_select(1..500) %>
+
+            <div class="field">
+              <%= f.label :start_time %>
+              <%= f.time_field :start_time, {ampm: true} %>
+            </div>
+
+            <div class="field">
+              <%= f.label :end_time %>
+              <%= f.time_field :end_time %>
+
+            </div>
 
 
-  </div>
+          </br>
+
+          <%= f.submit "Create", type: "submit", class: "btn btn-lg btn-primary btn-block" %>
 
 
+            </form>
+        </div>
+    </div>
 
-
-
-<br>
-<%= f.submit %>
-
-<% end %>
+    <% end %>
