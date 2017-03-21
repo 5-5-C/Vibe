@@ -1,69 +1,4 @@
-<style>
-.vibe-img-profile-showpage {
-  z-index: 2;
-  position: relative;
-  width: 600px;
-  margin-top: -510px;
-}
 
-  .org-name {
-    position: absolute;
-    z-index: 3;
-    margin-top: -552px;
-    margin-left: -170px;
-    transform: rotate(270deg);
-    color: white;
-    font-weight: bold;
-    font-size: 47px;
-    background: #0d2c40;
-    width: 481px;
-    height: 154px;
-    text-align: center;
-    padding-top: 74px;
-    padding-bottom: 18px;
-  }
-
-  .org-section {
-    z-index: 4;
-    margin-top: -713px;
-    margin-left: 225px;
-  }
-
-  .org-map {
-    margin-top: 118px;
-  }
-
-  footer { display:none;}
-
-  .org-show-buttons {
-    position: absolute;
-    margin-top: -772px;
-    z-index: 5;
-  }
-
-  .col-sm-offset-2 {
-      margin-left: 16.66666667%;
-      z-index: 5;
-  }
-
-</style>
-
-<img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
-
-
-
-<!-- <img src="/assets/peoplevibe.jpg" class="img-org-indexpage">
->>>>>>> 27da6a6e23df4611464ddbca24e4658ef31def4f
-<img src="/assets/vibe1.png" class="vibe-img-profile-showpage">
-
-
-  <h1 class="org-name"><%= @organization.name %></h1>
-
-    <% if current_user && current_user == @organization.user %>
-
-  <h3 class="org-show-buttons"><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
-
-<% end %> -->
 <div class="container-fluid">
 
     <!-- Heading Row -->
@@ -72,32 +7,24 @@
           <%= image_tag @organization.image_url, :class => "img-responsive img-rounded" %>
         </div>
         <!-- /.col-md-8 -->
-
-
         <div class="col-md-4">
             <h1><%= @organization.name%></h1>
             <p><%= @organization.description %></p>
-
-            <% if current_user && current_user == @organization.user %>
-
-            <div class="btn btn-primary btn-lg">
-              <%= link_to "Create Event", new_organization_event_path(@organization) %>
-            </div>
-
-            <div class="btn btn-primary btn-lg">
-              <%= link_to "Edit Organization", edit_organization_path(@organization) %>
-            </div>
-
-            <% end %>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Create an Event", new_organization_event_path(@organization) %> </a>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Edit Organization", edit_organization_path(@organization) %> </a>
 
         </div>
-
         <!-- /.col-md-4 -->
     </div>
   </div>
 
+  <h1 class="org-name"><%= @organization.name %></h1>
 
+  <% if current_user && current_user == @organization.user %>
 
+  <h3 class="org-show-buttons"><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
+
+<% end %>
 <section class="org-section">
 
 
@@ -106,12 +33,13 @@
 
     <% @events.each do |event| %>
 
+    <%= link_to event.name, organization_event_path(event) %>
+
 
  <div class="container">
 		<div class="row">
       <% if current_user && current_user == @organization.user %>
-      <%= link_to "Edit Event", edit_organization_event_path(@organization, event) %></h2>
-      <!-- <%= link_to "Cancel Event", @event, method: :delete, data: {confirm: "Are you sure?"} %> -->
+      <%= link_to "Edit Event", edit_organization_event_path(event) %></h2>
       <% end %>
 			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
 				<ul class="event-list">
@@ -145,12 +73,62 @@
 		</div>
 	</div>
 
+
+  <% if current_user && current_user == @organization.user %>
+
+
+  <table class="table table-bordered table-definition mb-5">
+     <thead class="table-warning ">
+         <tr>
+             <th>APPLIED USERS</th>
+             <th>Name</th>
+             <th>Application Date</th>
+             <th>E-mail address</th>
+             <th>Confirmed</th>
+         </tr>
+     </thead>
+
+     <% event.users.each do |user| %>
+
+     <tbody>
+         <tr>
+             <td>
+                 <label class="custom-control custom-checkbox">
+                     <input type="checkbox" class="custom-control-input">
+                     <span class="custom-control-indicator"></span>
+                 </label>
+             </td>
+
+             <td><%= user.first_name %> <%= user.last_name%></td>
+             <td><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
+             <td><%= user.email %></td>
+             <td>No</td>
+         </tr>
+     </tbody>
+     <% end %>
+
+     <tfoot>
+         <tr>
+
+             <th></th>
+             <th colspan="4">
+                 <button class="btn btn-default">Approve</button>
+                 <button class="btn btn-default">Approve All</button>
+             </th>
+         </tr>
+     </tfoot>
+  </table>
+
+  <% end %>
+
 <% end %>
 
 
 
   <div class="organization_container">
-
+    <h3 class="org-description">Description:
+      <%= @organization.description %>
+    </h3>
 </section>
     <div class="org-map" id="map">
       <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
