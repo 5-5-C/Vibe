@@ -1,4 +1,3 @@
-
 body {
   background: #f6efe5;
 }
@@ -26,10 +25,6 @@ nav.top-bar {
 
 }
 
-// a {
-//   color: white;
-// }
-
 li {
   list-style-type: none;
   display: inline-block;
@@ -48,12 +43,13 @@ li {
   position: fixed;
 }
 
-.intro-header {position: absolute;width: 269px;height: 592px;length: 100px;background: #0d2c40;margin: 0px 0px 0px 215px;}
+.intro-header {position: absolute;width: 269px;height: 509px;length: 100px;background: #0d2c40;margin: 0px 0px 0px 215px;}
 
 .intro-writeup {
   color: white;
   text-align: center;
-  padding-top: 64px;
+  padding-top: 44px;
+  padding-bottom: 9px;
 }
 
 .learn-more-button {
@@ -61,10 +57,11 @@ li {
 }
 
 
-img {
+.homepage-background {
   width: 100%;
   background-size: auto;
-  /* height: 502px; */
+  position: absolute;
+  z-index: -1
 }
 
 .logo-circle {
@@ -74,7 +71,7 @@ img {
   height: 225px;
   background: white;
   /* margin: 400px 116px 0px 100px; */
-  margin: 49% 8%;
+  margin: 20% 8%;
 }
 
 .logo-letter {
@@ -88,7 +85,7 @@ img {
   position: absolute;
   background: #f15b31;
   height: 256px;
-  margin: 336px 0px 0px 484px;
+  margin: 253px 0px 0px 484px;
   width: 825px;
 }
 
@@ -111,9 +108,9 @@ img {
 .b {
   position: absolute;
   width: 269px;
-  height: 850px;
+  height: 540px;
   background: #31c6dc;
-  margin: 336px 770px;
+  margin: 254px 770px;
 }
 
 .b-circle {
@@ -144,7 +141,7 @@ margin: 45px 64px;
   width: 200px;
   height: 200px;
   background: white;
-  margin: 368px 1081px;
+  margin: 281px 1081px;
 }
 
 .e-letter {
@@ -154,92 +151,7 @@ margin: 45px 64px;
   margin: 45px 11px 0px 63px;
 }
 
-
-.about-us {
-  position: absolute;
-  background: #0d2c40;
-  color: white;
-  width: 400px;
-  height: 450px;
-  margin-top: 125px;
-
-}
-
-.vertical-text {
-  transform: rotate(270deg);
-  float: left;
-  margin-top: 240px;
-  font-weight: bold;
-  font-size: 25px;
-  margin-left: -41px;
-}
-
-.about-us-writeup {
-  position: relative;
-  margin-top: 30px;
-  margin-top: 185px;
-  margin-right: 39px;
-  margin-left: 111px;
-}
-
 .vibe-writeup {
-  padding-top: 215px;
   color: white;
+  padding-top: 47px;
 }
-
-.event-bar {
-  background-color: #f15b31;
-  width: 300px;
-  height: 34px;
-  margin: 200px 0px 0px 441px;
-  text-align: center;
-  padding-top: 7px;
-  font-weight: bold;
-  color: white;
-  }
-
-.volunteer-oppoertunities-bar {
-  background-color: #f15b31;
-  width: 241px;
-  height: 34px;
-  margin: -178px 0px 0px 1057px;
-  text-align: center;
-  padding-top: 7px;
-  font-weight: bold;
-  color: white;
-}
-.joel {
-  position: relative;
-  left: 680px;
-  padding: 30px;
-}
-// .event-list {
-//   width: 300px;
-//   height: 398px;
-//   margin-bottom: -37%;
-//   margin-top: 2%;
-//   margin-left: 13%;
-// }
-//
-// .day {
-//   font-size: 50px;
-// }
-//
-// .month {
-//   font-size: 40px;
-// }
-//
-// .info {
-//   font-size: 15px;
-// }
-//
-// .title {
-//   font-size: 15px;
-// }
-
-
-// for parllax
-// .not-visible { display:none;}
-// .is-visible{
-//   display:block;
-// }
