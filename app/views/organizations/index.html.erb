@@ -74,7 +74,7 @@ color: #f15b31;
 
 <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"><%= organization.name %></div>
+                <div class="panel-heading"><%= link_to organization.name, organizations_path(organization) %></div>
                 <div class="panel-image">
                   <img class="img-responsive" data-src=  <%= image_tag organization.image_url, :style => "width:200px; height:200px;" %>
 
