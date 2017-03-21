@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :email, :password_digest, presence: true
   # validates :email, uniqueness: true
 
-  validates_presence_of :first_name, :last_name, :date_of_birth, :goals, :skills,  on: :update
+  validates_presence_of :first_name, :last_name, :date_of_birth, :goals,  on: :update
 
 
   SKILLS = ["","Administrative", "Analytical", "Artistic/Creative", "Budgeting",
