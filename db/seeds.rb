@@ -10,14 +10,14 @@ Organization.create(
 name: "Second Harvest Toronto",
 location: "1450 Lodestar Rd North York ON M3J 3C1",
 description: "Second Harvest Toronto is a food rescue and redistribution charitable organization that strives to decrease hunger in the city of Toronto.",
-image_url: "http://www.katiescucina.com/wp-content/uploads/2012/08/Second-Harvest-Logo-Big.jpg",
+image_url: "http://www2.peninsulasinai.org/sites/default/files/images/second%20harvest%20food%20bank.jpg",
 )
 
 Organization.create(
 name: "Canadian Cancer Society",
 location: "760 Pacific Rd Oakville ON L6L 6M5",
 description: "The Canadian Cancer Society is a national, community-based charitable organization of volunteers whose mission is to eradicate cancer and enhance the quality of life of those living with the disease.",
-image_url: "http://www.cancer.ca/~/media/CCS/Design/Images/CCS_logo_TW.png",
+image_url: "http://www.headshave.ca/images/CCSsupporter.jpg",
 )
 
 Organization.create(
@@ -38,7 +38,7 @@ Organization.create(
 name: "The Salvation Army",
 location: "160 Jarvis St, Toronto, ON M5B 2E1",
 description: "The Salvation Army is an international Christian church. Its message is based on the Bible; its ministry is motivated by love for God and the needs of humanity.",
-image_url: "https://s3-media1.fl.yelpcdn.com/bphoto/9stBMaZRZElJSOLbLO7NFQ/l.jpg",
+image_url: "https://s3.amazonaws.com/usn-cache.salvationarmy.org/30bb76dd-9b2d-4660-b91d-c162c1bc64e3_christmas.jpg",
 )
 
 Organization.create(

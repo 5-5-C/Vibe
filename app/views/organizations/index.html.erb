@@ -9,15 +9,6 @@ color: #f15b31;
  text-align: center;
 }
 
-<<<<<<< HEAD
-
-.portfolio-item::after {
-    margin-bottom: 25px
-=======
-.row {
- padding-top: 3%;
->>>>>>> 6c818bfd80a1ffa7d135f2b1e6d1335c51ebb7d1
-}
 
 </style>
 
@@ -74,9 +65,9 @@ color: #f15b31;
 
 <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"><%= link_to organization.name, organizations_path(organization) %></div>
+                <div class="panel-heading"><%= link_to organization.name, organization_path(organization) %></div>
                 <div class="panel-image">
-                  <img class="img-responsive" data-src=  <%= image_tag organization.image_url, :style => "width:200px; height:200px;" %>
+                  <img class="img-responsive" data-src=  <%= image_tag organization.image_url, :style => "width:300px; height:200px;" %>
 
                 </div>
                 <div class="panel-body">

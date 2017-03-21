@@ -22,6 +22,7 @@
    </thead>
 
    <% @event.users.each do |user| %>
+   <h2 class ="title"><%= link_to "Sign Up", event_signup_url(event) %></h2>
 
    <tbody>
        <tr>
@@ -31,6 +32,7 @@
                    <span class="custom-control-indicator"></span>
                </label>
            </td>
+           <h2 class ="title"><%= link_to "Sign Up", event_signup_url(event) %></h2>
 
            <td><%= user.first_name %> <%= user.last_name%></td>
            <td><%= user.created_at.to_formatted_s(:long_ordinal) %></td>

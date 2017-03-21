@@ -4,17 +4,15 @@
     <!-- Heading Row -->
     <div class="row">
         <div class="col-md-8">
-          <%= image_tag @organization.image_url, :class => "img-responsive img-rounded" %>
+          <%= image_tag @organization.image_url, :class => "img-responsive img-rounded", :style => "width:700px;height:500px;" %>
         </div>
         <!-- /.col-md-8 -->
         <div class="col-md-4">
-            <h1><%= @organization.name%></h1>
-            <p><%= @organization.description %></p>
-
+          <div class="org-map-org-show" id="map">
+            <span><iframe width="700" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe><</span>
+          </div>
             <% if current_user && current_user == @organization.user %>
 
-            <a class="btn btn-primary btn-lg" href= <%= link_to "Create an Event", new_organization_event_path(@organization) %> </a>
-            <a class="btn btn-primary btn-lg" href= <%= link_to "Edit Organization", edit_organization_path(@organization) %> </a>
             <% else %>
 
             <% end %>
@@ -39,10 +37,9 @@
 
     <% @events.each do |event| %>
 
-    <%= link_to event.name, organization_event_path(event) %>
 
 
- <div class="container">
+ <div class="container1">
 		<div class="row">
       <% if current_user && current_user == @organization.user %>
       <%= link_to "Edit Event", edit_organization_event_path(@organization, event) %>
@@ -133,7 +130,5 @@
       <%= @organization.description %>
     </h3>
 </section>
-    <div class="org-map" id="map">
-      <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
-    </div>
+
   </div>
