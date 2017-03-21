@@ -8,6 +8,13 @@
 <p>Signed Up: <%= @event.users.count %></p>
 
 
+              <% unless @event.users.include?(current_user) %>
+              <%= link_to "Sign Up", @event_signup_url %>
+              <% else %>
+                 Signed Up!
+               <% end %>
+
+
 
 <p><%= @event.location %></p>
 
@@ -59,6 +66,6 @@
 <% end %>
 
 
-<!-- <div class="org-map" id="map">
+<div class="org-map" id="map">
   <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@event.location)%>" allowfullscreen></iframe>
-</div> -->
+</div>

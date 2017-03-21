@@ -6,13 +6,6 @@ class Organization < ApplicationRecord
     render form_for @event
   end
 
-  def change
-    create_table :organizations
-    t.string :name
-    t.text :description
-    t.text :location
-  end
-
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end

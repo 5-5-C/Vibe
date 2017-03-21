@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
 
     <!-- Heading Row -->
@@ -6,32 +7,24 @@
           <%= image_tag @organization.image_url, :class => "img-responsive img-rounded" %>
         </div>
         <!-- /.col-md-8 -->
-
-
         <div class="col-md-4">
             <h1><%= @organization.name%></h1>
             <p><%= @organization.description %></p>
-
-            <% if current_user && current_user == @organization.user %>
-
-            <div class="btn btn-primary btn-lg">
-              <%= link_to "Create Event", new_organization_event_path(@organization) %>
-            </div>
-
-            <div class="btn btn-primary btn-lg">
-              <%= link_to "Edit Organization", edit_organization_path(@organization) %>
-            </div>
-
-            <% end %>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Create an Event", new_organization_event_path(@organization) %> </a>
+            <a class="btn btn-primary btn-lg" href= <%= link_to "Edit Organization", edit_organization_path(@organization) %> </a>
 
         </div>
-
         <!-- /.col-md-4 -->
     </div>
   </div>
 
+  <h1 class="org-name"><%= @organization.name %></h1>
 
+  <% if current_user && current_user == @organization.user %>
 
+  <h3 class="org-show-buttons"><%= link_to "Create an Event", new_organization_event_path(@organization) %> | <%= link_to "Edit Organization", edit_organization_path(@organization) %></h3>
+
+<% end %>
 <section class="org-section">
 
 
@@ -40,12 +33,14 @@
 
     <% @events.each do |event| %>
 
+    <%= link_to event.name, organization_event_path(event) %>
+
 
  <div class="container">
 		<div class="row">
       <% if current_user && current_user == @organization.user %>
       <%= link_to "Edit Event", edit_organization_event_path(@organization, event) %></h2>
-      <!-- <%= link_to "Cancel Event", @event, method: :delete, data: {confirm: "Are you sure?"} %> -->
+      <%= link_to "Cancel Event", event, method: :delete, data: {confirm: "Are you sure?"} %>
       <% end %>
 			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
 				<ul class="event-list">
@@ -56,21 +51,16 @@
 							<span class="time">ALL DAY</span>
 						</time>
 						<div class="info">
-							<h2 class="title"><%= link_to event.name, organization_event_path(@organization, event) %>
- |
+							<h2 class="title"><%= link_to event.name, organization_event_path(@organization, event) %></h2></br>
 
-              <% unless event.users.include?(current_user) %>
-              <%= link_to "Sign Up", event_signup_url(event) %></h2>
+
+
+
+              <% unless event.users.include?(current_user)  %>
+            <h2 class ="title"><%= link_to "Sign Up", event_signup_url(event) %></h2>
               <% else %>
-                 Signed Up!</h2>
+                <h2>Signed Up!</h2>
                <% end %>
-
-
-
-               </br>
-							<p class="desc"><%= event.description %></p>
-              <p class="desc"><%= event.location %></p>
-
 
 						</div>
 					</li>
@@ -79,12 +69,62 @@
 		</div>
 	</div>
 
+
+  <% if current_user && current_user == @organization.user %>
+
+
+  <table class="table table-bordered table-definition mb-5">
+     <thead class="table-warning ">
+         <tr>
+             <th>APPLIED USERS</th>
+             <th>Name</th>
+             <th>Application Date</th>
+             <th>E-mail address</th>
+             <th>Confirmed</th>
+         </tr>
+     </thead>
+
+     <% event.users.each do |user| %>
+
+     <tbody>
+         <tr>
+             <td>
+                 <label class="custom-control custom-checkbox">
+                     <input type="checkbox" class="custom-control-input">
+                     <span class="custom-control-indicator"></span>
+                 </label>
+             </td>
+
+             <td><%= user.first_name %> <%= user.last_name%></td>
+             <td><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
+             <td><%= user.email %></td>
+             <td>No</td>
+         </tr>
+     </tbody>
+     <% end %>
+
+     <tfoot>
+         <tr>
+
+             <th></th>
+             <th colspan="4">
+                 <button class="btn btn-default">Approve</button>
+                 <button class="btn btn-default">Approve All</button>
+             </th>
+         </tr>
+     </tfoot>
+  </table>
+
+  <% end %>
+
 <% end %>
 
 
 
   <div class="organization_container">
-
+    <h3 class="org-description">Description:
+      <%= @organization.description %>
+    </h3>
 </section>
     <div class="org-map" id="map">
       <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@organization.location)%>" allowfullscreen></iframe>
