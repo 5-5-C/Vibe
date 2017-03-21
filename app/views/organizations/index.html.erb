@@ -4,7 +4,6 @@ font-size: 13em;
 text-align: center;
 color: #f15b31;
 }
-
 .icon {
 text-align: center;
 }
@@ -27,27 +26,28 @@ padding-top: 3%;
 
 <div class="container marketing">
 
-  <!-- Three columns of text below the carousel -->
-  <div class="row">
-      <div class="icon col-lg-4">
-      <!-- <img class="img-circle" src="http://www.vertiba.com/wp-content/uploads/click-icon.png" alt="Generic placeholder image" width="140" height="140"> -->
-        <i class="fa fa-hand-o-up"></i>
-      <h2>Find an Organization</h2>
-      <p>Browse through our organizations to find one that suites you.</p>
-    </div><!-- /.col-lg-4 -->
+
+<!-- Three columns of text below the carousel -->
+<div class="row">
     <div class="icon col-lg-4">
-      <!-- <img class="img-circle" src="https://www.cfmco.org/wp-content/uploads/2015/07/icon-apply.png" alt="Generic placeholder image" width="140" height="140"> -->
-      <i class="fa fa-pencil-square"></i>
-      <h2>Apply for Event</h2>
-      <p>Apply for organization event.</p>
-    </div><!-- /.col-lg-4 -->
-    <div class="icon col-lg-4">
-      <!-- <img class="img-circle" src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/ico/Other/Tasks.ico" alt="Generic placeholder image" width="140" height="140"> -->
-            <i class="fa fa-check-circle"></i>
-      <h2>Get Approved!</h2>
-      <p>Submit application and get approved.</p>
-    </div><!-- /.col-lg-4 -->
-  </div><!-- /.row -->
+    <!-- <img class="img-circle" src="http://www.vertiba.com/wp-content/uploads/click-icon.png" alt="Generic placeholder image" width="140" height="140"> -->
+      <i class="fa fa-hand-o-up"></i>
+    <h2>Find an Organization</h2>
+    <p>Browse through our organizations to find one that suites you.</p>
+  </div><!-- /.col-lg-4 -->
+  <div class="icon col-lg-4">
+    <!-- <img class="img-circle" src="https://www.cfmco.org/wp-content/uploads/2015/07/icon-apply.png" alt="Generic placeholder image" width="140" height="140"> -->
+    <i class="fa fa-pencil-square"></i>
+    <h2>Apply for Event</h2>
+    <p>Apply for organization event.</p>
+  </div><!-- /.col-lg-4 -->
+  <div class="icon col-lg-4">
+    <!-- <img class="img-circle" src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/ico/Other/Tasks.ico" alt="Generic placeholder image" width="140" height="140"> -->
+          <i class="fa fa-check-circle"></i>
+    <h2>Get Approved!</h2>
+    <p>Submit application and get approved.</p>
+  </div><!-- /.col-lg-4 -->
+</div><!-- /.row -->
 
 
 
@@ -55,27 +55,24 @@ padding-top: 3%;
 
 
 
-  <%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
+<%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
 <%= submit_tag "Search", :name => nil %>
 
 <% end %>
 
-      <% @organizations.each do |organization| %>
+    <% @organizations.each do |organization| %>
 
 
-      <!-- <div class="row"> -->
-            <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" data-src=  <%= image_tag organization.image_url, :style => "width:700px;height:400px;" %>
-                </a>
-                <h3>
-                    <%= link_to organization.name, organization_path(organization) %>
-                </h3>
-                <p><%= organization.description %></p>
-            </div>
-
-
-
+    <!-- <div class="row"> -->
+          <div class="col-md-4 portfolio-item">
+              <a href="#">
+                  <img class="img-responsive" data-src=  <%= image_tag organization.image_url, :style => "width:700px;height:400px;" %>
+              </a>
+              <h3>
+                  <%= link_to organization.name, organization_path(organization) %>
+              </h3>
+              <p><%= organization.description %></p>
+          </div>
 
     <% end %>
