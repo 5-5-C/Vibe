@@ -10,8 +10,14 @@
         <div class="col-md-4">
             <h1><%= @organization.name%></h1>
             <p><%= @organization.description %></p>
+
+            <% if current_user && current_user == @organization.user %>
+
             <a class="btn btn-primary btn-lg" href= <%= link_to "Create an Event", new_organization_event_path(@organization) %> </a>
             <a class="btn btn-primary btn-lg" href= <%= link_to "Edit Organization", edit_organization_path(@organization) %> </a>
+            <% else %>
+
+            <% end %>
 
         </div>
         <!-- /.col-md-4 -->
