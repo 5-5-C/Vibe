@@ -35,6 +35,9 @@ end
     end
   end
 
+  def destroy
+  end
+
   def edit
     @organization = Organization.find(params[:id])
 
