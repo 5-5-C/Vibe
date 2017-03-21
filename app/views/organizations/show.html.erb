@@ -45,7 +45,9 @@
  <div class="container">
 		<div class="row">
       <% if current_user && current_user == @organization.user %>
-      <%= link_to "Edit Event", edit_organization_event_path(@organization, event) %></h2>
+      <%= link_to "Edit Event", edit_organization_event_path(@organization, event) %>
+      |<%#= link_to "Cancel Event", event, method: :delete, data: {confirm: "Forreal?"} %>
+
       <% end %>
 			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
 				<ul class="event-list">
