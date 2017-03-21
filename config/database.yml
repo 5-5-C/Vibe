@@ -18,5 +18,5 @@ test:
 
 production:
   adapter: postgresql
-  database: vibe
+  database: vibe_database
   host: localhost
