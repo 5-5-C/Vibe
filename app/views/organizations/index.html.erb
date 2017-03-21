@@ -4,6 +4,7 @@ font-size: 13em;
 text-align: center;
 color: #f15b31;
 }
+
 .icon {
 text-align: center;
 }
@@ -26,12 +27,11 @@ padding-top: 3%;
 
 <div class="container marketing">
 
-
 <!-- Three columns of text below the carousel -->
 <div class="row">
     <div class="icon col-lg-4">
     <!-- <img class="img-circle" src="http://www.vertiba.com/wp-content/uploads/click-icon.png" alt="Generic placeholder image" width="140" height="140"> -->
-      <i class="fa fa-hand-o-up"></i>
+    <i class="fa fa-university" aria-hidden="true"></i>
     <h2>Find an Organization</h2>
     <p>Browse through our organizations to find one that suites you.</p>
   </div><!-- /.col-lg-4 -->
@@ -53,26 +53,34 @@ padding-top: 3%;
 
 
 
-
+<!--
 
 <%= form_tag(organizations_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
-<%= submit_tag "Search", :name => nil %>
+<%= submit_tag "Search", :name => nil %> -->
 
 <% end %>
+
+<div class="row">
+
 
     <% @organizations.each do |organization| %>
 
 
-    <!-- <div class="row"> -->
-          <div class="col-md-4 portfolio-item">
-              <a href="#">
-                  <img class="img-responsive" data-src=  <%= image_tag organization.image_url, :style => "width:700px;height:400px;" %>
-              </a>
+
+
+          <div class="col-md-4 ">
+
+            <img class="img-responsive" data-src=  <%= image_tag organization.image_url, :style => "width:500px;height:400px;" %>
+
               <h3>
                   <%= link_to organization.name, organization_path(organization) %>
               </h3>
-              <p><%= organization.description %></p>
+
+              <p><%= organization.location %></p>
           </div>
 
+
     <% end %>
+
+  </div>

@@ -1,50 +1,27 @@
 
 
+<%= form_for (@organization) do |f| %>
+
 
 <div class="container">
-    <h1>Organization Profile</h1>
-  	<hr>
-
-
-      <div class="col-md-9 personal-info">
-
-
-        <%= form_for (@organization) do |f| %>
-
-
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Organization Name:</label>
-            <div class="col-lg-8">
-                <%= f.text_field :name, class: "form-control", type: "text" %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Details:</label>
-            <div class="col-lg-8">
-              <%= f.text_area :description, class: "form-control", type: "text" %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Location:</label>
-            <div class="col-lg-8">
-              <%= f.text_field :location, class: "form-control", type: "text" %>
-            </div>
-          </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 well well-sm">
+            <legend><i class="glyphicon glyphicon-globe"></i></a> Organization Profile</legend>
+            <%= f.text_field :name, class: "form-control", placeholder: "Name", type: "text" %>
+            <%= f.text_field :location, class: "form-control", placeholder: "Location", type: "text" %>
+            <%= f.text_area :description, class: "form-control", placeholder: "About", type: "text", rows: "9", cols: "25" %></br>
 
 
 
-          <div class="col-lg-8">
 
-          <%= f.submit "Submit", type: "submit", class: "btn btn-lg btn-primary" %>
 
-            </div>
-          </div>
-        </form>
-      </div>
-  </div>
-</div>
+          </br>
 
-<% end %>
+          <%= f.submit "Submit", type: "submit", class: "btn btn-lg btn-primary btn-block" %>
+
+
+            </form>
+        </div>
+    </div>
+
+    <% end %>

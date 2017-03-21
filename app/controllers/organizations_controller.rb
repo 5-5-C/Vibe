@@ -9,7 +9,7 @@ class OrganizationsController < ApplicationController
     else
       @organizations = Organization.all.order("created_at DESC")
 
-    # @organization = Organization.find(params[:id])
+
   end
 end
 
