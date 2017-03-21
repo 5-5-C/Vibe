@@ -1,22 +1,11 @@
 
-
-<p>Event: <%= @event.name %></p>
-<p>Date: <%= @event.date %></p>
+<p>Event Name: <%= @event.name %></p>
+<p>Date: <%= @event.date.to_formatted_s(:long_ordinal) %>, <%= @event.start_time.strftime("%H:%M%P") %></p>
 <p>Capacity: <%= @event.capacity %></p>
 <p><%= @event.description %></p>
 
 <p>Signed Up: <%= @event.users.count %></p>
 
-
-              <% unless @event.users.include?(current_user) %>
-              <%= link_to "Sign Up", @event_signup_url %>
-              <% else %>
-                 Signed Up!
-               <% end %>
-
-
-
-<p><%= @event.location %></p>
 
 <% if current_user && current_user == @organization.user %>
 
@@ -67,5 +56,6 @@
 
 
 <div class="org-map" id="map">
-  <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@event.location)%>" allowfullscreen></iframe>
+  <iframe width="500" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@event.location)%>" allowfullscreen></iframe>
+
 </div>
