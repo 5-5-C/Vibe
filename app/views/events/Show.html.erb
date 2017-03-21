@@ -8,6 +8,13 @@
 <p>Signed Up: <%= @event.users.count %></p>
 
 
+              <% unless @event.users.include?(current_user) %>
+              <%= link_to "Sign Up", @event_signup_url %>
+              <% else %>
+                 Signed Up!
+               <% end %>
+
+
 
 <p><%= @event.location %></p>
 

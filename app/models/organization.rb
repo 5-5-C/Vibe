@@ -6,6 +6,7 @@ class Organization < ApplicationRecord
     render form_for @event
   end
 
+
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end
