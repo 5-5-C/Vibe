@@ -1,9 +1,20 @@
+<style>
+.img-profile-editpage{
+  width: 100%;
+  background-size: auto;
+  opacity: 0.2;
+  z-index: -1;
+  position: absolute;
+  margin-top: -21px
+}
+</style>
 
+<img src="/assets/peoplevibe.jpg" class="img-profile-editpage">
 <div class="container-fluid">
 
     <!-- Heading Row -->
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6" id="organizationshowimage">
           <%= image_tag @organization.image_url, :class => "img-responsive img-rounded", :style => "width:700px;height:500px;" %>
         </div>
         <!-- /.col-md-8 -->
@@ -23,6 +34,11 @@
   </div>
 
   <h1 class="org-name"><%= @organization.name %></h1>
+
+  <div class="organization_container">
+    <h3 class="org-description">Description:
+      <%= @organization.description %>
+    </h3>
 
   <% if current_user && current_user == @organization.user %>
 
@@ -125,10 +141,10 @@
 
 
 
-  <div class="organization_container">
+  <!-- <div class="organization_container">
     <h3 class="org-description">Description:
       <%= @organization.description %>
-    </h3>
+    </h3> -->
 </section>
 
   </div>

@@ -1,10 +1,25 @@
+<style>
+.img-profile-editpage{
+  width: 100%;
+  background-size: auto;
+  opacity: 0.2;
+  z-index: -1;
+  position: absolute;
+  margin-top: -21px
+}
 
-<p>Event Name: <%= @event.name %></p>
-<p>Date: <%= @event.date.to_formatted_s(:long_ordinal) %>, <%= @event.start_time.strftime("%H:%M%P") %></p>
-<p>Capacity: <%= @event.capacity %></p>
+
+</style>
+<img src="/assets/peoplevibe.jpg" class="img-profile-editpage">
+
+<h3>Event Name:</h3>
+<p><%= @event.name %></p>
+<h3>Date:</h3>
+<p> <%= @event.date.to_formatted_s(:long_ordinal) %>, <%= @event.start_time.strftime("%H:%M%P") %></p>
+<h3>Capacity</h3>
+<p><%= @event.capacity %></p>
+<h3>Description</h3>
 <p><%= @event.description %></p>
-
-<p>Signed Up: <%= @event.users.count %></p>
 
 
 <% if current_user && current_user == @organization.user %>
@@ -58,6 +73,6 @@
 
 
 <div class="org-map" id="map">
-  <iframe width="500" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@event.location)%>" allowfullscreen></iframe>
+  <iframe width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&key=AIzaSyA-n-_WBfJeCKnVbLZEq8zE16CC-XgtCjI&q=<%=URI.encode(@event.location)%>" allowfullscreen></iframe>
 
 </div>

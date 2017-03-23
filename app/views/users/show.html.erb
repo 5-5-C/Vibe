@@ -1,4 +1,13 @@
 <style>
+.img-profile-editpage{
+  width: 100%;
+  background-size: auto;
+  opacity: 0.2;
+  z-index: 1;
+  position: absolute;
+  margin-top: -21px
+}
+
 .img-profile-showpage{
   width: 100%;
   background-size: auto;
@@ -48,14 +57,14 @@ padding-top: 0px;
 
 #goals {
     width: 50%;
-    background-color: navy;
+    background-color: #31c6dc;
     position: absolute;
-    margin-top: 34%;
+    margin-top: 32%;
 }
 
 #myProgress {
     height: 26px;
-    background-color: orange;
+    background-color: #f15b31;
     position: relative;
     left: 0;
     margin-top: -20px;
@@ -64,9 +73,7 @@ padding-top: 0px;
 
 
 </style>
-
-
-
+<img src="/assets/peoplevibe.jpg" class="img-profile-editpage">
 
 <div class="user-profile-container">
 
@@ -155,6 +162,14 @@ padding-top: 0px;
 
                         <td>Join Date:</td>
                           <td><%= current_user.created_at.strftime("%m/%d/%Y") %></td>
+                        </tr>
+                      <tr>
+                        <td class="hours-completed">Hours Completed:</td>
+                        <td><%= current_user.hours %></td>
+                        <div id="goals">
+                          <%= percentage = (current_user.hours.to_f / current_user.goals) * 100 %>
+                          <div style = "width:<%= percentage %>%" id="myProgress"></div>
+                        </div>
                       </tr>
                 </tbody>
               </table>
@@ -166,20 +181,10 @@ padding-top: 0px;
 
         <h3> My Events </h3>
         <% @events.each do |event|%>
-        <h4><%= link_to event.name %></h4>
+        <h4><%= event.name %></h4>
         <% end %>
 
         </div>
       </div>
     </div>
   </div>
-
-
-<tr>
-  <td>Hours Completed:</td>
-  <td><%= current_user.hours %></td>
-  <div id="goals">
-    <%= percentage = (current_user.hours.to_f / current_user.goals) * 100 %>
-    <div style = "width:<%= percentage %>%" id="myProgress"></div>
-  </div>
-</tr>

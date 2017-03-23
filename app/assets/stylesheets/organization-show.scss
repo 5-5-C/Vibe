@@ -5,9 +5,22 @@ body {
 .container1 {
   position: relative;
   right: 145px;
-  max-width: 60%;
+
+}
+
+#organizationshowimage {
+  margin-left: 8%;
 }
 
 .org-map-org-show {
-  float: right;
+  margin-right: 25px;
+}
+
+.org-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.organization_container {
+  text-align: center;
 }

@@ -61,6 +61,18 @@ summary: "Volunteer to setup, teardown, auction assistance, catering assistance,
 hours: 8,
 )
 
+Event.create(
+organization_id: 1,
+name: "Feeding Our Future",
+description: "Spend a weekday during the summer to help make hundreds of delicious and lunches for children attending city camps.  Second Harvest delivers to about a dozen community centres in Toronto thus ensuring children who get subsidized lunches during the school year will also be receiving at least one nutritious meal a day during the summer. Groups of 6-7 volunteers are needed per shift.",
+location: "1450 Lodestar Rd North York ON M3J 3C1",
+date: "2017-07-01",
+start_time: "13:00:00",
+end_time: "18:00:00",
+capacity: 30,
+summary: "Help make hundreds of delicious and lunches for children attending city camps.",
+hours: 5,
+)
 
 Event.create(
 organization_id: 2,
@@ -88,6 +100,18 @@ summary: "Gain front line exposure in a mental health or addiction setting.",
 hours: 9,
 )
 
+Event.create(
+organization_id: 3,
+name: "Research Volunteer Placement",
+description: "Research Volunteers assist staff in obtaining information necessary for research projects. The departments in which volunteers work vary depending on the availability of the programs. The skills required for these positions include knowledge of research methodology, experience using SPSS (statistical software) and some prior relevant experience. Length of commitment is contingent upon the assignment; volunteers can assist 5 to 8 hours per week.",
+location: "250 College Toronto ON M5T 1L8",
+date: "2017-08-01",
+start_time: "09:00:00",
+end_time: "18:00:00",
+capacity: 5,
+summary: "Assist staff in obtaining information necessary for research projects.",
+hours: 9,
+)
 
 Event.create(
 organization_id: 4,
@@ -102,6 +126,18 @@ summary: "Volunteers help youth mentors in Toronto",
 hours: 9,
 )
 
+Event.create(
+organization_id: 5,
+name: "Thrift Store Sale",
+description: "Help needed at Thrift Store. Volunteers needed to help sorting clothing and display them for sale, stocking shelves and general tidying of store.",
+location: "1219 Bloor St W, Toronto, ON M6H 1N6, Canada",
+date: "2017-03-30",
+start_time: "08:00:00",
+end_time: "17:00:00",
+capacity: 6,
+summary: "Help needed at Thrift Store.",
+hours: 9,
+)
 
 Event.create(
 organization_id: 5,
@@ -127,4 +163,17 @@ end_time: "17:00:00",
 capacity: 4,
 summary: "Support our Food Coordinator and the volunteer groups who come to our House to prepare sandwiches",
 hours: 9,
+)
+
+Event.create(
+organization_id: 6,
+name: "Family Room Summer Volunteers",
+description: "This is a great opportunity for post-secondary students to have a meaningful volunteer experience during their summer vacation. You will gain knowledge and see firsthand the role that RMHC Toronto plays in the continuum of family-centered care. It will provide you with a deeper understanding of the impact of illness on families with a sick child. You will have the opportunity to meet and work with other awesome people and to know at the end of each shift that you have made a difference in the lives of our families.",
+location: "240 McCaul St Toronto ON M5T 1W5",
+date: "2017-03-29",
+start_time: "08:00:00",
+end_time: "20:00:00",
+capacity: 10,
+summary: "You will gain knowledge and see firsthand the role that RMHC Toronto plays in the continuum of family-centered care.",
+hours: 12,
 )
